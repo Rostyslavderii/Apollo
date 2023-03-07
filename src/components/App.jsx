@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
 import Layout from './Layout/Layout';
+
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
 
