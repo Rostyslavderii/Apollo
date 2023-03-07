@@ -1,16 +1,17 @@
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+
+import Layout from './Layout/Layout';
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      React ApolloTest template
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="favorites" element={<FavoritePage />} />
+      </Route>
+    </Routes>
   );
 };
