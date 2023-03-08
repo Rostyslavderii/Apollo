@@ -1,21 +1,18 @@
 import { Logo } from 'components/Logo/Logo';
-import { DivHeader, SingInButton, } from './Header.styled';
+import { Container, HeaderBlock } from './Header.styled';
+import { Navigation } from './Navigation/Navigation';
 
 export const Header = () => {
   return (
     <>
-      <DivHeader>
-        <Logo />
-        <Navigator />
-        <FavoriteHeart/>
-        <SingInButton
-          type="button"
-          onClick={() => {
-            alert('Need logout fetch');
-          }}
-        ></SingInButton>
-
-      </DivHeader>
+      <header>
+        <Container>
+          <HeaderBlock>
+            <Logo />
+            <Navigation />
+          </HeaderBlock>
+        </Container>
+      </header>
     </>
   );
 };
