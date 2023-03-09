@@ -5,7 +5,7 @@ export const NavList = () => {
     <>
       <Nav>
         <li>
-          <NavLinks to="/">Home</NavLinks>
+          <NavLinks to="/">Home</NavLinks>  
         </li>
         <li>
           <NavLinks to="/">Tours</NavLinks>

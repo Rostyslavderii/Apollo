@@ -3,17 +3,15 @@ import styled from 'styled-components';
 export const Container = styled(`div`)`
   margin-left: auto;
   margin-right: auto;
-  background-color: #1e1e1e;
-  opacity: 0.8;
 
   @media screen and (min-width: 1280px) {
-    padding-left: 28px;
-    padding-right: 28px;
     width: 1398px;
   }
 `;
 
 export const HeaderBlock = styled.div`
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background: rgba(30, 30, 30, 0.48);
   display: flex;
   align-items: center;
   padding-top: 0px;

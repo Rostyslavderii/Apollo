@@ -7,6 +7,8 @@ export const Nav = styled.ul`
   display: flex;
 `;
 export const NavLinks = styled(NavLink)`
+  text-transform: uppercase;
+  text-decoration: none;
   padding-left: 32px;
   padding-right: 32px;
 `;
