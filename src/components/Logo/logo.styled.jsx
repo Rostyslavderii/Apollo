@@ -1,36 +1,27 @@
 import styled from 'styled-components';
-//import Logo from '../../images/Logo/Logo1.svg';
+import Logo from '../../images/Logo/Logo1.svg';
 import { Link } from 'react-router-dom';
 
 export const LogoLink = styled(Link)`
-  //background: none;
-  background-color: transparent;
-  /* background: rgba(0, 0, 0, 0);
-  mix-blend-mode: difference; */
-`;
-
-export const LogoImage = styled(`img`)`
-  // position: absolute;
+  display: block;
   width: 229px;
   height: 42px;
-  padding-top: 18.5px;
-  padding-bottom: 19.5px;
-  background-repeat: no-repeat;
-  opacity: 0.4;
-  //fill: transparent;
-  mix-blend-mode: difference;
-  //background-blend-mode: unset;
-  /* background-image: red;
-  background-color: red; */
-  //background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-  svg {
-    //
-  }
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(${Logo});
+  background-blend-mode: difference;
 `;
 
-//  linear-gradient(
-//         to bottom,
-//         rgba(255, 255, 255, 0.4),
-//         rgba(255, 255, 255, 0.4)
-//       );
-//       backdrop-filter: blur(25px);
+// export const LogoImage = styled(`img`)`
+//   position: absolute;
+//   top: 0px;
+//   background-image: rgba(0, 0, 0, 0);
+//   width: 229px;
+//   height: 42px;
+//   padding-top: 18.5px;
+//   padding-bottom: 19.5px;
+//   z-index: 10;
+
+//   //
+// `;
+
+export const Div = styled.div``;

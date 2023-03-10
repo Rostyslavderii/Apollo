@@ -10,8 +10,10 @@ export const Container = styled(`div`)`
 `;
 
 export const HeaderBlock = styled.div`
+  position: relative;
+  z-index: 1;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background: rgba(30, 30, 30, 0.48);
+  background: rgba(6, 6, 6, 0.48);
   display: flex;
   align-items: center;
   padding-top: 0px;
