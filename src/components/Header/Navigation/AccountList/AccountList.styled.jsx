@@ -7,6 +7,8 @@ export const List = styled(`ul`)`
 `;
 export const SingInButton = styled(`button`)`
   margin-left: 12px;
+  padding: 12px 0px;
+  text-transform: uppercase;
   width: 163px;
   background-color: ${p => p.theme.colors.bottons};
   font-family: ${p => p.theme.fonts.secondaryFamily};

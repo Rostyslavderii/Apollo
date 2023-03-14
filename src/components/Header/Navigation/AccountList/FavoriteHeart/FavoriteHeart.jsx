@@ -1,4 +1,3 @@
-//import Heart from './Heart.svg';
 import { BiHeart } from 'react-icons/bi';
 import { FavoriteLink } from './FavoriteHeart.styled';
 

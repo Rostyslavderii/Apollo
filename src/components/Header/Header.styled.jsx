@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled(`div`)`
+  opacity: 0;
   margin-left: auto;
   margin-right: auto;
+  &:hover {
+    opacity: 1;
+  }
 
   @media screen and (min-width: 1280px) {
     width: 100vw;
@@ -16,6 +20,6 @@ export const HeaderBlock = styled.div`
   align-items: center;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 86px;
-  padding-right: 36px;
+  padding-left: 80px;
+  padding-right: 80px;
 `;
