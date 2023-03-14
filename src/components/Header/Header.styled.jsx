@@ -5,13 +5,11 @@ export const Container = styled(`div`)`
   margin-right: auto;
 
   @media screen and (min-width: 1280px) {
-    width: 1398px;
+    width: 100vw;
   }
 `;
 
 export const HeaderBlock = styled.div`
-  position: relative;
-  z-index: 1;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   background: rgba(6, 6, 6, 0.48);
   display: flex;

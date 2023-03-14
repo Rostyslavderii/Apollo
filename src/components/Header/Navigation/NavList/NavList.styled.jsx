@@ -5,10 +5,12 @@ export const Nav = styled.ul`
   padding-left: 263px;
   padding-right: 265px;
   display: flex;
+  gap: 32px;
 `;
 export const NavLinks = styled(NavLink)`
   text-transform: uppercase;
   text-decoration: none;
-  padding-left: 32px;
-  padding-right: 32px;
+  color: white;
 `;
+
+export const NavLi = styled.li``;

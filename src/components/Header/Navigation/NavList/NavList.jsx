@@ -1,21 +1,21 @@
-import { Nav, NavLinks } from './NavList.styled';
+import { Nav, NavLinks, NavLi } from './NavList.styled';
 
 export const NavList = () => {
   return (
     <>
       <Nav>
-        <li>
-          <NavLinks to="/">Home</NavLinks>  
-        </li>
-        <li>
+        <NavLi>
+          <NavLinks to="/">Home</NavLinks>
+        </NavLi>
+        <NavLi>
           <NavLinks to="/">Tours</NavLinks>
-        </li>
-        <li>
+        </NavLi>
+        <NavLi>
           <NavLinks to="/">About</NavLinks>
-        </li>
-        <li>
+        </NavLi>
+        <NavLi>
           <NavLinks to="/">Help</NavLinks>
-        </li>
+        </NavLi>
       </Nav>
     </>
   );
