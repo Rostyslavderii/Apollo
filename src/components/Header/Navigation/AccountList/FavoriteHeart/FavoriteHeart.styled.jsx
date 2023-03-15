@@ -9,8 +9,11 @@ export const FavoriteLink = styled(Link)`
   width: 53px;
   height: 53px;
   background-color: ${p => p.theme.colors.arrows};
+  transition: all 0.3s;
   &:hover,
   &:focus {
+    transform: scale(1.05);
+
     background-color: ${p => p.theme.colors.accent};
     svg {
       fill: ${p => p.theme.colors.mainText};

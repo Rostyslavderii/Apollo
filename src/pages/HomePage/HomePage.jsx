@@ -1,7 +1,9 @@
+import { HeroBanner } from 'components/HeroBanner/HeroSection';
+
 const HomePage = () => {
   return (
     <>
-      <section></section>
+      <HeroBanner></HeroBanner>
     </>
   );
 };

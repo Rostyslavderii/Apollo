@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "description": "Cosmonaut",
+      "icon": "../../images/Banner/image.png"
+    },
+    {
+      "id": 2,
+      "description": "sattilite",
+      "icon": "images/Banner/pexels-m.png"
+    },
+    {
+      "id": 3,
+      "description": "austronaut",
+      "icon": "/images/Banner/pexels-s.png"
+    }
+  ]

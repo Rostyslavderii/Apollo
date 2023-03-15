@@ -16,4 +16,12 @@ export const SingInButton = styled(`button`)`
   font-size: 24px;
   line-height: 1.2;
   text-align: center;
+  transition: all 0.3s;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+  &.active {
+    font-weight: 900;
+  }
 `;

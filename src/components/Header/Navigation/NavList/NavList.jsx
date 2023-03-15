@@ -8,13 +8,34 @@ export const NavList = () => {
           <NavLinks to="/">Home</NavLinks>
         </NavLi>
         <NavLi>
-          <NavLinks to="/">Tours</NavLinks>
+          <NavLinks
+            onClick={() => {
+              alert('Need tours fetch');
+            }}
+            to="/tours"
+          >
+            Tours
+          </NavLinks>
         </NavLi>
         <NavLi>
-          <NavLinks to="/">About</NavLinks>
+          <NavLinks
+            onClick={() => {
+              alert('Need about fetch');
+            }}
+            to="/about"
+          >
+            About
+          </NavLinks>
         </NavLi>
         <NavLi>
-          <NavLinks to="/">Help</NavLinks>
+          <NavLinks
+            onClick={() => {
+              alert('Need help fetch');
+            }}
+            to="/help"
+          >
+            Help
+          </NavLinks>
         </NavLi>
       </Nav>
     </>

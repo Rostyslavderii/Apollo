@@ -11,6 +11,16 @@ export const NavLinks = styled(NavLink)`
   text-transform: uppercase;
   text-decoration: none;
   color: white;
+  transition: box-shadow 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  &.active {
+    padding-bottom: 4px;
+    box-shadow: 0px 1.2px 0px rgb(255, 255, 255);
+  }
+  &:hover,
+  &:focus {
+    padding-bottom: 4px;
+    box-shadow: 0px 1.2px 0px rgb(255, 255, 255);
+  }
 `;
 
 export const NavLi = styled.li``;
