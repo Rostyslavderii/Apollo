@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled(`div`)`
+  position: absolute;
+  z-index: 10;
   opacity: 1;
   margin-left: auto;
   margin-right: auto;
