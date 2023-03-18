@@ -16,7 +16,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  position: relative;
+  /* position: relative; */
     margin: 0;
   font-family: 'loto', sans-serif, 'syne', sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
