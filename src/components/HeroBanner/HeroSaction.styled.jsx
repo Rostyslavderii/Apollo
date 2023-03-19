@@ -3,24 +3,61 @@ import styled from 'styled-components';
 export const Banner = styled.div`
   position: relative;
 `;
-
-export const List = styled.ul`
+//ArrowButton
+export const ArrowDiv = styled.div`
   position: absolute;
-  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
 `;
-export const Item = styled.li``;
+export const ArrowContainer = styled.div``;
 
-export const Image = styled.img``;
+export const ArrowButton = styled.button`
+  display: flex;
+  align-items: center;
+`;
+export const ArrowImg = styled.img``;
+export const Text = styled.p``;
+
+//Slider
+export const List = styled.ul`
+  /* position: absolute;
+  z-index: 2;
+  display: flex; */
+  /* flex-wrap: nowrap; */
+  /* scroll-snap-type: x proximity; */
+`;
+export const Item = styled.li`
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  opacity: ${props => (props.slide ? 1 : 0)};
+  transition: opacity ease-in-out 0.4s;
+  /* display: ${props => (props.displayIt ? 'block' : 'none')}; */
+  /* &.active-aim {
+    opacity: 1;
+  } */
+  /* &.slide {
+    opacity: 1;
+  } */
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+`;
 
 export const Container = styled.div`
-  margin-left: auto;
+  /* margin-left: auto;
   margin-right: auto;
-  /* padding-left: 20px;
-  padding-right: 20px; */
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 
   @media screen and (min-width: 480px) {
     width: 480px;
@@ -35,6 +72,8 @@ export const Container = styled.div`
   }
 `;
 
+//radio
+
 export const RadioWraper = styled.div`
   justify-content: center;
   display: flex;
@@ -46,20 +85,23 @@ export const FormCtrl = styled.form`
   z-index: 3;
 `;
 export const RadioButtonsDiv = styled.div`
-  justify-content: center;
-  display: flex;
-  align-items: center;
+  position: inherit;
+  top: 400px;
 `;
 
 export const LabelsCtrl = styled.div`
   &:not(:last-child) {
     margin-right: 8px;
   }
+
+  display: flex;
+  justify-content: center;
+  align-content: end;
 `;
 
 export const Sp = styled.label`
   position: relative;
-  margin-right: 15px;
+  margin-right: 24px;
   display: block;
   color: #fff;
   cursor: pointer;
@@ -76,18 +118,30 @@ export const Sp = styled.label`
 
   &::before {
     left: 0;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background-color: white;
   }
 
   &::after {
-    left: -7px;
-    height: 20px;
-    width: 20px;
+    left: -8px;
+    height: 24px;
+    width: 24px;
     border: 2px solid white;
     box-shadow: 0px 0px 6px 1px white;
-    opacity: 0;
+    opacity: 1;
+  }
+
+  @keyframes scale {
+    0% {
+      transform: translateY(-50%) scale(1.5);
+    }
+    50% {
+      transform: translateY(-50%) scale(0.5);
+    }
+    110% {
+      transform: translateY(-50%) scale(1);
+    }
   }
 `;
 
