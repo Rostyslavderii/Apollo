@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, List, Item, Image } from '../HeroSaction.styled';
 import { Sp, LabelsCtrl, RadioButtonsDiv } from '../HeroSaction.styled';
-import { RadioInputs } from '../RadioInputs/RadioInputs';
+
 import Images from './Images.json';
 
 export const SliderContent = () => {
@@ -34,7 +34,7 @@ export const SliderContent = () => {
           {Images.map((image, index) => (
             <Item
               key={image.id}
-              // className={slideIndex === index + 1 ? 'slide' : ''}
+              //className={slideIndex === index + 1 ? 'slide' : ''}
               slide={slideIndex === index + 1}
             >
               {(console.log('id', image.id), console.log('slide'))}
