@@ -1,8 +1,23 @@
+import { GET_ALL_ROCKETS } from '../../apollo/apolloAPI';
 import { useQuery } from '@apollo/client';
-import { GET_ALL_ROCKETS } from '../apollo/todos';
 
 export const ApolloTest = () => {
-  const { data } = useQuery(GET_ALL_ROCKETS);
+  const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
-  return <></>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+
+  return (
+    <>
+      {data.rockets.map(({ id, name, description }) => (
+        <div key={id}>
+          <h3>{name}</h3>
+          <br />
+          <b>About this location:</b>
+          <p>{description}</p>
+          <br />
+        </div>
+      ))}
+    </>
+  );
 };

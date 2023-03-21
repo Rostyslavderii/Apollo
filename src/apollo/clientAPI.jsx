@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 export const client = new ApolloClient({
-  uri: 'http://localhost:4000',
+  uri: 'https://spacex-production.up.railway.app/',
   cache: new InMemoryCache(),
+  connectToDevTools: true,
 });

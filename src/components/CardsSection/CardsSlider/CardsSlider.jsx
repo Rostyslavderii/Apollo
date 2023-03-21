@@ -6,9 +6,16 @@ import {
   CardsContainer,
 } from './CardsSlider.styled';
 import { useState } from 'react';
+import { GET_ALL_ROCKETS } from '../../../apollo/apolloAPI';
+import { useQuery } from '@apollo/client';
+import Images from '../../../apollo/Images.json';
 
 export const CardsSlider = () => {
   const [slideIndex, setSlideIndex] = useState(1);
+  const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
 
   const nextSlide = () => {
     if (slideIndex !== Images.length) {
@@ -29,6 +36,7 @@ export const CardsSlider = () => {
   const moveInput = index => {
     setSlideIndex(index);
   };
+  const Icons = Images.map(image => image.icon);
 
   return (
     <>
@@ -41,19 +49,22 @@ export const CardsSlider = () => {
           </CardsArrows>
         </CardsTopic> */}
         <CardList>
-          {/* {Images.map((image, index) => (
+          {data.rockets.map(({ id, name, description }, index) => (
             <CardItem
-              key={image.id}
-              //className={slideIndex === index + 1 ? 'slide' : ''}
-              slide={slideIndex === index + 1}
+              key={id}
+              className={slideIndex === index + 1 ? 'slide' : ''}
             >
-              {(console.log('id', image.id), console.log('slide'))}
+              <h3>{name}</h3>
               <CardImg
-               src={process.env.PUBLIC_URL + image.icon}
-               alt={image.description}
+                src={process.env.PUBLIC_URL + Icons[index]}
+                alt={description}
               />
+              <b>About this location:</b>
+              <p>{description}</p>
+              {console.log(Icons[index])}
+              <br />
             </CardItem>
-          ))} */}
+          ))}
         </CardList>
         <RadioButtonsDiv>
           <LabelsCtrl>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, List, Item, Image } from '../HeroSaction.styled';
 import { Sp, LabelsCtrl, RadioButtonsDiv } from '../HeroSaction.styled';
 
-import Images from './Images.json';
+import Images from '../../../apollo/Images.json';
 
 export const SliderContent = () => {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -37,7 +37,6 @@ export const SliderContent = () => {
               //className={slideIndex === index + 1 ? 'slide' : ''}
               slide={slideIndex === index + 1}
             >
-              {(console.log('id', image.id), console.log('slide'))}
               <Image
                 src={process.env.PUBLIC_URL + image.icon}
                 alt={image.description}
