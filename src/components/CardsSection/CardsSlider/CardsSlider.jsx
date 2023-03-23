@@ -4,6 +4,11 @@ import {
   CardItem,
   CardImg,
   CardsContainer,
+  CardsTopic,
+  CardsH1,
+  CardsArrows,
+  ArrLeft,
+  ArrRight,
 } from './CardsSlider.styled';
 import { useState } from 'react';
 import { GET_ALL_ROCKETS } from '../../../apollo/apolloAPI';
@@ -41,28 +46,25 @@ export const CardsSlider = () => {
   return (
     <>
       <CardsContainer>
-        {/* <CardsTopic>
-          <CardsH1></CardsH1>
+        <CardsTopic>
+          <CardsH1>popular tours</CardsH1>
           <CardsArrows>
-            <ArrLeft></ArrLeft>
-            <ArrRight></ArrRight>
+            <ArrLeft>L</ArrLeft>
+            <ArrRight>R</ArrRight>
           </CardsArrows>
-        </CardsTopic> */}
+        </CardsTopic>
         <CardList>
           {data.rockets.map(({ id, name, description }, index) => (
             <CardItem
               key={id}
               className={slideIndex === index + 1 ? 'slide' : ''}
             >
-              <h3>{name}</h3>
               <CardImg
                 src={process.env.PUBLIC_URL + Icons[index]}
                 alt={description}
               />
-              <b>About this location:</b>
+              <h3>{name}</h3>
               <p>{description}</p>
-              {console.log(Icons[index])}
-              <br />
             </CardItem>
           ))}
         </CardList>

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const FavoriteLink = styled(Link)`
+  text-decoration: none;
   display: flex;
   flex-direction: row;
   justify-content: center;

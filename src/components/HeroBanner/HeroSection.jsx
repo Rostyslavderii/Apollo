@@ -11,12 +11,12 @@ export const HeroBanner = () => {
     <>
       <Banner>
         <SliderContent />
-        <ArrowToursItem />
         <BannerText>
           <H1>
-            the space is waitong for<Big>you</Big>
+            the space is waiting for<Big>you</Big>
           </H1>
         </BannerText>
+        <ArrowToursItem />
       </Banner>
     </>
   );

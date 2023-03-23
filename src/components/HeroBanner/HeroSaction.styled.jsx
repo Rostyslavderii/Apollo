@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 export const Banner = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 //BannerText
 export const BannerText = styled.div`
-  position: inherit;
-  left: 0%;
-  top: 239px;
-  text-align: center;
-`;
-export const H1 = styled.h1`
+  position: absolute;
   margin-left: 167px;
   margin-right: 151px;
+`;
+export const H1 = styled.h1`
   text-transform: uppercase;
   color: white;
   font-family: Syne;
@@ -24,15 +24,13 @@ export const H1 = styled.h1`
 
 export const Big = styled.h1`
   font-size: 310px;
-  line-height: 199px;
+  line-height: 277px;
   font-weight: 900;
 `;
-//ArrowButton
+// //ArrowButton
 export const ArrowDiv = styled.div`
-  position: inherit;
-  display: flex;
-  justify-content: center;
-  top: 600px;
+  position: absolute;
+  top: 90%;
 `;
 export const ArrowContainer = styled.div``;
 
@@ -58,10 +56,14 @@ export const Text = styled.p`
 `;
 
 //Slider
-export const List = styled.ul``;
+export const List = styled.ul`
+  position: relative;
+`;
 export const Item = styled.li`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
   opacity: ${props => (props.slide ? 1 : 0)};
   transition: opacity ease-in-out 0.4s;
 `;
@@ -74,16 +76,15 @@ export const Image = styled.img`
 `;
 
 export const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
   @media screen and (min-width: 480px) {
-    width: 480px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 768px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 1280px;
   }
 `;
 
@@ -100,20 +101,18 @@ export const FormCtrl = styled.form`
   z-index: 3;
 `;
 export const RadioButtonsDiv = styled.div`
-  position: inherit;
-  top: 439px;
+  position: absolute;
   z-index: 10;
-  left: -2%;
 `;
 
 export const LabelsCtrl = styled.div`
   &:not(:last-child) {
     margin-right: 8px;
   }
-
+  position: absolute;
   display: flex;
-  justify-content: center;
-  align-content: end;
+  left: -64px;
+  top: 29px;
 `;
 
 export const Sp = styled.label`

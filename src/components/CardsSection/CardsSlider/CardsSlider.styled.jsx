@@ -1,13 +1,49 @@
 import styled from 'styled-components';
 
 //CardsSlider
-export const CardsContainer = styled.div``;
-export const CardList = styled.ul``;
-export const CardItem = styled.li``;
-export const CardImg = styled.img`
-  width: 444px;
-  height: 296px;
+export const CardsContainer = styled.div`
+  margin-left: 80px;
+  margin-right: 80px;
 `;
+export const CardList = styled.ul`
+  display: flex;
+  flex-wrap: nowrap;
+`;
+export const CardItem = styled.li`
+  &:not(:nth-child(n + 3)) {
+    margin-right: 24px;
+  }
+  &:nth-child(n + 4) {
+    display: none;
+  }
+  border: 1px solid #d3eaff;
+`;
+export const CardImg = styled.img`
+  width: 411px;
+  height: 296px;
+  object-fit: contain;
+`;
+
+//CardsTopic
+export const CardsTopic = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 43px;
+`;
+export const CardsH1 = styled.h1`
+  font-family: syne;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 38px;
+  text-transform: uppercase;
+`;
+//CardsArrows
+export const CardsArrows = styled.div`
+  width: 104px;
+  height: 44px;
+`;
+export const ArrLeft = styled.button``;
+export const ArrRight = styled.button``;
 
 //CardsButtonsBlack
 export const RadioButtonsDiv = styled.div`
