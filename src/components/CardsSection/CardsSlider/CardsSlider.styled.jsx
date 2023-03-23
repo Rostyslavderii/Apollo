@@ -4,7 +4,10 @@ import styled from 'styled-components';
 export const CardsContainer = styled.div``;
 export const CardList = styled.ul``;
 export const CardItem = styled.li``;
-export const CardImg = styled.img``;
+export const CardImg = styled.img`
+  width: 444px;
+  height: 296px;
+`;
 
 //CardsButtonsBlack
 export const RadioButtonsDiv = styled.div`

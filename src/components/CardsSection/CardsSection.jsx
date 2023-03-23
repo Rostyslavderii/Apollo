@@ -4,7 +4,7 @@ import { CardsSlider } from './CardsSlider/CardsSlider';
 export const CardsSection = () => {
   return (
     <>
-      <CardsSctn>
+      <CardsSctn id="hero2">
         <CardsSlider />
       </CardsSctn>
     </>

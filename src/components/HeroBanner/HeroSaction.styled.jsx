@@ -70,7 +70,7 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: fixed;
+  position: absolute;
 `;
 
 export const Container = styled.div`

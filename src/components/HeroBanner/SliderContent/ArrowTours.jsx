@@ -12,7 +12,7 @@ export const ArrowToursItem = () => {
     <>
       <ArrowDiv>
         <ArrowContainer>
-          <ArrowButton>
+          <ArrowButton href="#hero2">
             <Text>explore tours</Text> <ArrowImg src={arrowImg} alt="" />
           </ArrowButton>
         </ArrowContainer>
