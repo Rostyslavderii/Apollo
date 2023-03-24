@@ -4,10 +4,13 @@ import styled from 'styled-components';
 export const CardsContainer = styled.div`
   margin-left: 80px;
   margin-right: 80px;
+  margin-bottom: 96px;
+  width: 1281px;
+  height: 720px;
 `;
 export const CardList = styled.ul`
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 `;
 
 export const CardsItemContainer = styled.div`
@@ -18,8 +21,11 @@ export const CardsItemContainer = styled.div`
 export const CardItem = styled.li`
   width: 411px;
   height: 572px;
-  &:not(:nth-child(n + 3)) {
+  /* &:not(:nth-child(n + 3)) {
     margin-right: 24px;
+  } */
+  &:not(:first-child) {
+    margin-left: 24px;
   }
   &:nth-child(n + 4) {
     display: none;
@@ -85,8 +91,17 @@ export const CardsArrows = styled.div`
   width: 104px;
   height: 44px;
 `;
-export const ArrLeft = styled.button``;
-export const ArrRight = styled.button``;
+export const ArrowButton = styled.button`
+  width: 44px;
+  height: 44px;
+  &:first-child {
+    margin-right: 16px;
+  }
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+`;
 
 //ButtomList BUY
 export const ButtomList = styled.div`
@@ -118,20 +133,16 @@ export const CardButton = styled.button`
 
 //CardsButtonsBlack
 export const RadioButtonsDiv = styled.div`
-  position: inherit;
-  top: 439px;
-  z-index: 10;
-  left: -2%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 `;
 
 export const LabelsCtrl = styled.div`
   &:not(:last-child) {
     margin-right: 8px;
   }
-
   display: flex;
-  justify-content: center;
-  align-content: end;
 `;
 
 export const Sp = styled.label`

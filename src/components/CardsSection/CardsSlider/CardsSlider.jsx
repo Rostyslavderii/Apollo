@@ -1,4 +1,5 @@
 import { Sp, LabelsCtrl, RadioButtonsDiv } from './CardsSlider.styled';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
   CardList,
@@ -12,8 +13,7 @@ import {
   CardsTopic,
   CardsH1,
   CardsArrows,
-  ArrLeft,
-  ArrRight,
+  ArrowButton,
   ButtomList,
   CardButton,
 } from './CardsSlider.styled';
@@ -29,21 +29,23 @@ export const CardsSlider = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  // const nextSlide = () => {
-  //   if (slideIndex !== Images.length) {
-  //     setSlideIndex(slideIndex + 1);
-  //   } else if (slideIndex === Images.length) {
-  //     setSlideIndex(1);
-  //   }
-  // };
+  const nextSlide = () => {
+    console.log(2);
+    if (slideIndex !== Images.length) {
+      setSlideIndex(slideIndex + 1);
+    } else if (slideIndex === Images.length) {
+      setSlideIndex(1);
+    }
+  };
 
-  // const prevSlide = () => {
-  //   if (slideIndex !== 1) {
-  //     setSlideIndex(slideIndex - 1);
-  //   } else if (slideIndex === 1) {
-  //     setSlideIndex(Images.length);
-  //   }
-  // };
+  const prevSlide = () => {
+    console.log(1);
+    if (slideIndex !== 1) {
+      setSlideIndex(slideIndex - 1);
+    } else if (slideIndex === 1) {
+      setSlideIndex(Images.length);
+    }
+  };
 
   const moveInput = index => {
     setSlideIndex(index);
@@ -56,8 +58,12 @@ export const CardsSlider = () => {
         <CardsTopic>
           <CardsH1>popular tours</CardsH1>
           <CardsArrows>
-            <ArrLeft>L</ArrLeft>
-            <ArrRight>R</ArrRight>
+            <ArrowButton onClick={() => prevSlide()}>
+              <IoIosArrowBack />
+            </ArrowButton>
+            <ArrowButton>
+              <IoIosArrowForward onClick={() => nextSlide()} />
+            </ArrowButton>
           </CardsArrows>
         </CardsTopic>
         <CardList>

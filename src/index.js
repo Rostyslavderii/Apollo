@@ -11,7 +11,7 @@ import {client} from './apollo/clientAPI';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter >
+    <BrowserRouter basename="/Rostyslavderii/ApolloTest" >
       <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
       <App />
