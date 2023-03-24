@@ -1,7 +1,6 @@
 import { Banner, BannerText, Big, H1 } from './HeroSaction.styled';
-import { SliderContent } from './SliderContent/SliderContent';
 import { ArrowToursItem } from './SliderContent/ArrowTours';
-
+import { SliderContent } from './SliderContent/SliderContent';
 // const HandleCheckBox = event => {
 //   console.log(event.target.value);
 // };

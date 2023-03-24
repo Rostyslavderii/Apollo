@@ -7,21 +7,21 @@ import Images from '../../../apollo/Images.json';
 export const SliderContent = () => {
   const [slideIndex, setSlideIndex] = useState(1);
 
-  const nextSlide = () => {
-    if (slideIndex !== Images.length) {
-      setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === Images.length) {
-      setSlideIndex(1);
-    }
-  };
+  // const nextSlide = () => {
+  //   if (slideIndex !== Images.length) {
+  //     setSlideIndex(slideIndex + 1);
+  //   } else if (slideIndex === Images.length) {
+  //     setSlideIndex(1);
+  //   }
+  // };
 
-  const prevSlide = () => {
-    if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1);
-    } else if (slideIndex === 1) {
-      setSlideIndex(Images.length);
-    }
-  };
+  // const prevSlide = () => {
+  //   if (slideIndex !== 1) {
+  //     setSlideIndex(slideIndex - 1);
+  //   } else if (slideIndex === 1) {
+  //     setSlideIndex(Images.length);
+  //   }
+  // };
 
   const moveInput = index => {
     setSlideIndex(index);

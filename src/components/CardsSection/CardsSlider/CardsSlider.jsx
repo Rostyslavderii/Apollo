@@ -29,21 +29,21 @@ export const CardsSlider = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  const nextSlide = () => {
-    if (slideIndex !== Images.length) {
-      setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === Images.length) {
-      setSlideIndex(1);
-    }
-  };
+  // const nextSlide = () => {
+  //   if (slideIndex !== Images.length) {
+  //     setSlideIndex(slideIndex + 1);
+  //   } else if (slideIndex === Images.length) {
+  //     setSlideIndex(1);
+  //   }
+  // };
 
-  const prevSlide = () => {
-    if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1);
-    } else if (slideIndex === 1) {
-      setSlideIndex(Images.length);
-    }
-  };
+  // const prevSlide = () => {
+  //   if (slideIndex !== 1) {
+  //     setSlideIndex(slideIndex - 1);
+  //   } else if (slideIndex === 1) {
+  //     setSlideIndex(Images.length);
+  //   }
+  // };
 
   const moveInput = index => {
     setSlideIndex(index);
