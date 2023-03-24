@@ -1,14 +1,21 @@
 import { Sp, LabelsCtrl, RadioButtonsDiv } from './CardsSlider.styled';
+import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
   CardList,
+  CardsItemContainer,
   CardItem,
   CardImg,
   CardsContainer,
+  CardTextContainer,
+  CardName,
+  CardText,
   CardsTopic,
   CardsH1,
   CardsArrows,
   ArrLeft,
   ArrRight,
+  ButtomList,
+  CardButton,
 } from './CardsSlider.styled';
 import { useState } from 'react';
 import { GET_ALL_ROCKETS } from '../../../apollo/apolloAPI';
@@ -59,19 +66,27 @@ export const CardsSlider = () => {
               key={id}
               className={slideIndex === index + 1 ? 'slide' : ''}
             >
-              <CardImg
-                src={process.env.PUBLIC_URL + Icons[index]}
-                alt={description}
-              />
-              <h3>{name}</h3>
-              <p>{description}</p>
+              <CardsItemContainer>
+                <CardImg
+                  src={process.env.PUBLIC_URL + Icons[index]}
+                  alt={description}
+                />
+              </CardsItemContainer>
+              <CardTextContainer>
+                <CardName>{name}</CardName>
+                <CardText>{description}</CardText>
+              </CardTextContainer>
+              <ButtomList>
+                <CardButton to="/">buy</CardButton>
+                <FavoriteHeart />
+              </ButtomList>
             </CardItem>
           ))}
         </CardList>
         <RadioButtonsDiv>
           <LabelsCtrl>
             {Array.from({ length: 3 }).map((item, index) => (
-              <Sp key={index} onClick={() => moveInput(index + 1)}></Sp>
+              <Sp key={index} onClick={() => moveInput(index + 3)}></Sp>
             ))}
           </LabelsCtrl>
         </RadioButtonsDiv>

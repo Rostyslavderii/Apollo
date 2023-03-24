@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HashLink } from 'react-router-hash-link';
 
 export const Banner = styled.div`
   position: relative;
@@ -32,15 +33,23 @@ export const ArrowDiv = styled.div`
   position: absolute;
   top: 90%;
 `;
-export const ArrowContainer = styled.div``;
+export const ArrowLink = styled(HashLink)`
+  text-decoration: none;
+`;
 
 export const ArrowButton = styled.button`
   cursor: pointer;
   background-color: transparent;
   display: flex;
   align-items: center;
+  transition: all 0.3s;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
 `;
 export const ArrowImg = styled.img``;
+
 export const Text = styled.p`
   text-transform: capitalize;
   font-family: Lato;

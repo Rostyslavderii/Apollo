@@ -3,19 +3,20 @@ import {
   ArrowImg,
   ArrowDiv,
   Text,
-  ArrowContainer,
+  ArrowLink,
 } from '../HeroSaction.styled';
+
 import arrowImg from '../../../images/icons/ArrowDown.svg';
 
 export const ArrowToursItem = () => {
   return (
     <>
       <ArrowDiv>
-        <ArrowContainer>
-          <ArrowButton href="#hero2">
+        <ArrowLink smooth to="/#hero2">
+          <ArrowButton>
             <Text>explore tours</Text> <ArrowImg src={arrowImg} alt="" />
           </ArrowButton>
-        </ArrowContainer>
+        </ArrowLink>
       </ArrowDiv>
     </>
   );
