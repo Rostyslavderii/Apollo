@@ -11,7 +11,7 @@ import {client} from './apollo/clientAPI';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/Rostyslavderii/ApolloTest" >
+    <BrowserRouter  >
       <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
       <App />
@@ -22,4 +22,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
 );
 
-//basename="/Rostyslavderii/ApolloTest"
+//basename="/ApolloTest"
