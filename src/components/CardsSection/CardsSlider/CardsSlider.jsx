@@ -1,5 +1,11 @@
 import { Sp, LabelsCtrl, RadioButtonsDiv } from './CardsSlider.styled';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper';
+import 'swiper/css';
+
+import 'swiper/less/navigation';
+//import './styles.css';
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
   CardList,
@@ -21,6 +27,8 @@ import { useState } from 'react';
 import { GET_ALL_ROCKETS } from '../../../apollo/apolloAPI';
 import { useQuery } from '@apollo/client';
 import Images from '../../../apollo/Images.json';
+
+import 'swiper/css/pagination';
 
 export const CardsSlider = () => {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -60,17 +68,33 @@ export const CardsSlider = () => {
         <CardsTopic>
           <CardsH1>popular tours</CardsH1>
           <CardsArrows>
-            <ArrowButton onClick={prevSlide}>
+            <ArrowButton className="swiper-button-prev">
               <IoIosArrowBack />
             </ArrowButton>
-            <ArrowButton>
-              <IoIosArrowForward onClick={() => nextSlide()} />
+            <ArrowButton className="swiper-button-next">
+              <IoIosArrowForward />
             </ArrowButton>
           </CardsArrows>
         </CardsTopic>
-        <CardList>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          pagination={{
+            //el: '.swiper-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+              return '<span class="' + className + '">' + '</span>';
+            },
+          }}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
           {data.rockets.map(({ id, name, description }, index) => (
-            <CardItem
+            <SwiperSlide
               key={id}
               className={slideIndex === index + 1 ? 'slide' : ''}
             >
@@ -88,13 +112,17 @@ export const CardsSlider = () => {
                 <CardButton to="/">buy</CardButton>
                 <FavoriteHeart />
               </ButtomList>
-            </CardItem>
+            </SwiperSlide>
           ))}
-        </CardList>
+        </Swiper>
         <RadioButtonsDiv>
           <LabelsCtrl>
             {Array.from({ length: 3 }).map((item, index) => (
-              <Sp key={index} onClick={() => moveInput(index + 3)}></Sp>
+              <Sp
+                className="swiper-pagination-bullet"
+                key={index}
+                // onClick={() => moveInput(index + 3)}
+              ></Sp>
             ))}
           </LabelsCtrl>
         </RadioButtonsDiv>
