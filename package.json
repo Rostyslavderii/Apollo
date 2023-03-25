@@ -2,7 +2,7 @@
   "name": "react-ApolloTest-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rostyslavderii.github.io/ApolloTest/",
+  "homepage": "https://rostyslavderii.github.io/Apollo/",
   "dependencies": {
     "@apollo/client": "^3.7.10",
     "@mui/material": "^5.11.13",
