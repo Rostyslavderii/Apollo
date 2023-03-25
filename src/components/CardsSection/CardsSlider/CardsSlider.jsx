@@ -30,20 +30,22 @@ export const CardsSlider = () => {
   if (error) return <p>Error : {error.message}</p>;
 
   const nextSlide = () => {
-    console.log(2);
-    if (slideIndex !== Images.length) {
+    if (slideIndex !== data.rockets.length) {
       setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === Images.length) {
+      console.log(1, setSlideIndex(slideIndex + 1));
+    } else if (slideIndex === data.rockets.length) {
       setSlideIndex(1);
+      console.log(2, setSlideIndex(1));
     }
   };
 
   const prevSlide = () => {
-    console.log(1);
     if (slideIndex !== 1) {
       setSlideIndex(slideIndex - 1);
+      console.log(1, setSlideIndex(slideIndex - 1));
     } else if (slideIndex === 1) {
-      setSlideIndex(Images.length);
+      setSlideIndex(data.rockets.length);
+      console.log(2, setSlideIndex(data.rockets.length));
     }
   };
 
@@ -58,7 +60,7 @@ export const CardsSlider = () => {
         <CardsTopic>
           <CardsH1>popular tours</CardsH1>
           <CardsArrows>
-            <ArrowButton onClick={() => prevSlide()}>
+            <ArrowButton onClick={prevSlide}>
               <IoIosArrowBack />
             </ArrowButton>
             <ArrowButton>

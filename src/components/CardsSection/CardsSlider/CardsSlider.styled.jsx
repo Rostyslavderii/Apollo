@@ -5,12 +5,13 @@ export const CardsContainer = styled.div`
   margin-left: 80px;
   margin-right: 80px;
   margin-bottom: 96px;
-  width: 1281px;
+  width: 1286px;
   height: 720px;
 `;
 export const CardList = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 40px;
 `;
 
 export const CardsItemContainer = styled.div`
@@ -135,7 +136,6 @@ export const CardButton = styled.button`
 export const RadioButtonsDiv = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 40px;
 `;
 
 export const LabelsCtrl = styled.div`
