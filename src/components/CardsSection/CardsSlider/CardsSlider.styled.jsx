@@ -147,47 +147,52 @@ export const LabelsCtrl = styled.div`
   display: flex;
 `;
 
+export const sp1 = styled.span``;
+
 export const Sp = styled.span`
-  &.className {
-    position: relative;
-    margin-right: 24px;
-    display: block;
-    color: #000;
-    cursor: pointer;
-    transition: color 0.5s;
-    &::before,
+  /* &.custom-pagination {
+    display: none;
+  } */
+
+  position: relative;
+  margin-right: 24px;
+  display: block;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.5s;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+
+  &::before {
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+  }
+
+  &::after {
+    left: -8px;
+    height: 24px;
+    width: 24px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 6px 1px black;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus {
     &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border-radius: 50%;
-    }
-
-    &::before {
-      left: 0;
-      width: 12px;
-      height: 12px;
-      background-color: black;
-    }
-
-    &::after {
-      left: -8px;
-      height: 24px;
-      width: 24px;
-      border: 2px solid black;
-      box-shadow: 0px 0px 6px 1px black;
-      opacity: 0;
-    }
-
-    &:hover,
-    &:focus {
-      &::after {
-        opacity: 1;
-        animation: scale;
-      }
+      opacity: 1;
+      animation: scale;
     }
   }
+
   @keyframes scale {
     0% {
       transform: translateY(-50%) scale(1.5);

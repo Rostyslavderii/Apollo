@@ -1,13 +1,14 @@
 import { Sp, LabelsCtrl, RadioButtonsDiv } from './CardsSlider.styled';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper';
+import SwiperCore, { Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 
 import 'swiper/less/navigation';
 //import './styles.css';
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
+  sp1,
   CardList,
   CardsItemContainer,
   CardItem,
@@ -27,8 +28,9 @@ import { useState } from 'react';
 import { GET_ALL_ROCKETS } from '../../../apollo/apolloAPI';
 import { useQuery } from '@apollo/client';
 import Images from '../../../apollo/Images.json';
+import * as ReactDOMServer from 'react-dom/server';
 
-import 'swiper/css/pagination';
+import 'swiper/swiper-bundle.min.css';
 
 export const CardsSlider = () => {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -62,6 +64,8 @@ export const CardsSlider = () => {
   };
   const Icons = Images.map(image => image.icon);
 
+  SwiperCore.use([Pagination]);
+
   return (
     <>
       <CardsContainer>
@@ -83,7 +87,9 @@ export const CardsSlider = () => {
             //el: '.swiper-pagination',
             clickable: true,
             renderBullet: function (index, className) {
-              return '<span class="' + className + '">' + '</span>';
+              return ReactDOMServer.renderToStaticMarkup(
+                <sp1 className={className}></sp1>
+              );
             },
           }}
           navigation={{
@@ -119,7 +125,7 @@ export const CardsSlider = () => {
           <LabelsCtrl>
             {Array.from({ length: 3 }).map((item, index) => (
               <Sp
-                className="swiper-pagination-bullet"
+                className=""
                 key={index}
                 // onClick={() => moveInput(index + 3)}
               ></Sp>
