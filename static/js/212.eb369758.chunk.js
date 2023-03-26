@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_ApolloTest_template=self.webpackChunkreact_ApolloTest_template||[]).push([[212],{9212:function(e,t,s){s.r(t);var l=s(184);t.default=function(){return(0,l.jsxs)(l.Fragment,{children:[(0,l.jsx)("div",{children:"header"}),(0,l.jsx)("section",{})]})}}}]);
-//# sourceMappingURL=212.eb369758.chunk.js.map
