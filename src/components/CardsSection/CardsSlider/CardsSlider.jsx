@@ -2,10 +2,7 @@ import { Sp, LabelsCtrl, RadioButtonsDiv } from './CardsSlider.styled';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination, Navigation } from 'swiper';
-import 'swiper/css';
 
-import 'swiper/less/navigation';
-//import './styles.css';
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
   sp1,
@@ -30,7 +27,9 @@ import { useQuery } from '@apollo/client';
 import Images from '../../../apollo/Images.json';
 import * as ReactDOMServer from 'react-dom/server';
 
-import 'swiper/swiper-bundle.min.css';
+import 'swiper/css';
+import 'swiper/less/navigation';
+import 'swiper/less/pagination';
 
 export const CardsSlider = () => {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -64,7 +63,7 @@ export const CardsSlider = () => {
   };
   const Icons = Images.map(image => image.icon);
 
-  SwiperCore.use([Pagination]);
+  SwiperCore.use([Pagination, Navigation]);
 
   return (
     <>
@@ -92,10 +91,13 @@ export const CardsSlider = () => {
               );
             },
           }}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
+          navigation={
+            // true
+            {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }
+          }
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >

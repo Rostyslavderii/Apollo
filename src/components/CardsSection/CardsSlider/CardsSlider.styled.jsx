@@ -147,7 +147,9 @@ export const LabelsCtrl = styled.div`
   display: flex;
 `;
 
-export const sp1 = styled.span``;
+export const sp1 = styled.span`
+  color: #000;
+`;
 
 export const Sp = styled.span`
   /* &.custom-pagination {

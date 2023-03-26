@@ -21,6 +21,7 @@ export const FavoriteLink = styled(Link)`
     }
   }
   svg {
+    fill: ${p => p.theme.colors.black};
     width: 24px;
     height: 24px;
   }
