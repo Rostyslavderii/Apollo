@@ -8,6 +8,86 @@ export const CardsContainer = styled.div`
   margin-bottom: 96px;
   width: 1286px;
   height: 720px;
+  span {
+    color: #000;
+    .swiper-pagination-bullet {
+      transform: scale(0.33);
+      position: relative;
+    }
+  }
+
+  div {
+    .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      text-align: center;
+      transition: 300ms opacity;
+      transform: translate3d(0, 0, 0);
+      z-index: 10;
+      &.swiper-pagination-hidden {
+        opacity: 0;
+      }
+      .swiper-pagination-disabled > &,
+      &.swiper-pagination-disabled {
+        display: none !important;
+      }
+    }
+
+    .swiper-pagination-fraction,
+    .swiper-pagination-custom,
+    .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+      bottom: var(--swiper-pagination-bottom, 8px);
+      top: var(--swiper-pagination-top, auto);
+      left: 0;
+      width: 100%;
+    }
+    span {
+      position: relative;
+      margin-right: 24px;
+      display: block;
+      color: #000;
+      cursor: pointer;
+      transition: color 0.5s;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+      }
+
+      &::before {
+        left: 0;
+        width: 12px;
+        height: 12px;
+        background-color: black;
+      }
+
+      &::after {
+        left: -8px;
+        height: 24px;
+        width: 24px;
+        border: 2px solid black;
+        box-shadow: 0px 0px 6px 1px black;
+        opacity: 0;
+      }
+
+      &:hover,
+      &:focus {
+        &::after {
+          opacity: 1;
+          animation: scale;
+        }
+      }
+      .swiper-pagination-bullet {
+        transform: scale(0.33);
+        position: relative;
+      }
+    }
+  }
 `;
 export const CardList = styled.ul`
   display: flex;

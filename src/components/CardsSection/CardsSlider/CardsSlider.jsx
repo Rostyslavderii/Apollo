@@ -5,6 +5,7 @@ import SwiperCore, { Pagination, Navigation } from 'swiper';
 
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
+  theme,
   sp1,
   CardList,
   CardsItemContainer,
@@ -80,14 +81,23 @@ export const CardsSlider = () => {
           </CardsArrows>
         </CardsTopic>
         <Swiper
+          style={
+            {
+              // '--swiper-pagination-color': '#000',
+              // '--swiper-pagination-bullet-inactive-color': '#999999',
+              // '--swiper-pagination-bullet-inactive-opacity': '1',
+              // '--swiper-pagination-bullet-size': '12px',
+              // '--swiper-pagination-bullet-horizontal-gap': '6px',
+            }
+          }
           slidesPerView={3}
           spaceBetween={30}
           pagination={{
             //el: '.swiper-pagination',
             clickable: true,
-            renderBullet: function (index, className) {
+            renderBullet: function (index, className, theme) {
               return ReactDOMServer.renderToStaticMarkup(
-                <sp1 className={className}></sp1>
+                <span className={className} theme={theme}></span>
               );
             },
           }}
@@ -123,7 +133,7 @@ export const CardsSlider = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <RadioButtonsDiv>
+        {/* <RadioButtonsDiv>
           <LabelsCtrl>
             {Array.from({ length: 3 }).map((item, index) => (
               <Sp
@@ -133,7 +143,7 @@ export const CardsSlider = () => {
               ></Sp>
             ))}
           </LabelsCtrl>
-        </RadioButtonsDiv>
+        </RadioButtonsDiv> */}
       </CardsContainer>
     </>
   );
