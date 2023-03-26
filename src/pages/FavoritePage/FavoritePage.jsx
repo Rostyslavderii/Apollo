@@ -1,8 +1,10 @@
+import { FavoriteBanner } from 'components/FavoriteBanner/FavoriteBanner';
+import { FavoritesCards } from 'components/FavoritesCards/FavoritesCards';
 const FavoritePage = () => {
   return (
     <>
-      <div>header</div>
-      <section></section>
+      <FavoriteBanner />
+      <FavoritesCards />
     </>
   );
 };
