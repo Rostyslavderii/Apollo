@@ -1,15 +1,7 @@
-import { Sp, LabelsCtrl, RadioButtonsDiv } from './CardsSlider.styled';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination, Navigation } from 'swiper';
-
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
-  theme,
-  sp1,
-  CardList,
   CardsItemContainer,
-  CardItem,
   CardImg,
   CardsContainer,
   CardTextContainer,
@@ -22,46 +14,24 @@ import {
   ButtomList,
   CardButton,
 } from './CardsSlider.styled';
-import { useState } from 'react';
+//ApolloApi
 import { GET_ALL_ROCKETS } from '../../../apollo/apolloAPI';
 import { useQuery } from '@apollo/client';
 import Images from '../../../apollo/Images.json';
 import * as ReactDOMServer from 'react-dom/server';
-
+//swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
 export const CardsSlider = () => {
-  const [slideIndex, setSlideIndex] = useState(1);
   const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  const nextSlide = () => {
-    if (slideIndex !== data.rockets.length) {
-      setSlideIndex(slideIndex + 1);
-      console.log(1, setSlideIndex(slideIndex + 1));
-    } else if (slideIndex === data.rockets.length) {
-      setSlideIndex(1);
-      console.log(2, setSlideIndex(1));
-    }
-  };
-
-  const prevSlide = () => {
-    if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1);
-      console.log(1, setSlideIndex(slideIndex - 1));
-    } else if (slideIndex === 1) {
-      setSlideIndex(data.rockets.length);
-      console.log(2, setSlideIndex(data.rockets.length));
-    }
-  };
-
-  const moveInput = index => {
-    setSlideIndex(index);
-  };
   const Icons = Images.map(image => image.icon);
 
   SwiperCore.use([Pagination, Navigation]);
@@ -83,38 +53,22 @@ export const CardsSlider = () => {
         <Swiper
           style={{
             'padding-bottom': '60px',
-            // '--swiper-pagination-color': '#000',
-            // '--swiper-pagination-bullet-inactive-color': '#999999',
-            // '--swiper-pagination-bullet-inactive-opacity': '1',
-            // '--swiper-pagination-bullet-size': '12px',
-            // '--swiper-pagination-bullet-horizontal-gap': '6px',
           }}
           slidesPerView={3}
           spaceBetween={24}
           pagination={{
             //el: '.swiper-pagination',
             clickable: true,
-            renderBullet: function (index, className, theme) {
+            renderBullet: function (index, className) {
               return ReactDOMServer.renderToStaticMarkup(
-                <span
-                  style={
-                    //   swiper-pagination-bullet-active:{
-                    {}
-                    // }
-                  }
-                  className={className}
-                  theme={theme}
-                ></span>
+                <span className={className}></span>
               );
             },
           }}
-          navigation={
-            // true
-            {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            }
-          }
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >
@@ -143,17 +97,6 @@ export const CardsSlider = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* <RadioButtonsDiv>
-          <LabelsCtrl>
-            {Array.from({ length: 3 }).map((item, index) => (
-              <Sp
-                className=""
-                key={index}
-                // onClick={() => moveInput(index + 3)}
-              ></Sp>
-            ))}
-          </LabelsCtrl>
-        </RadioButtonsDiv> */}
       </CardsContainer>
     </>
   );

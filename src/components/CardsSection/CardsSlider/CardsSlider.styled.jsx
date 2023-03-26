@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { Pagination, Navigation } from 'swiper';
 
 //CardsSlider
 export const CardsContainer = styled.div`
@@ -8,13 +7,6 @@ export const CardsContainer = styled.div`
   margin-bottom: 96px;
   width: 1286px;
   height: 720px;
-  span {
-    color: #000;
-    .swiper-pagination-bullet {
-      transform: scale(0.33);
-      position: relative;
-    }
-  }
 
   div {
     .swiper-pagination {
@@ -100,32 +92,12 @@ export const CardsContainer = styled.div`
     }
   }
 `;
-export const CardList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-`;
 
 export const CardsItemContainer = styled.div`
   width: 411px;
   height: 296px;
 `;
 
-export const CardItem = styled.li`
-  width: 411px;
-  height: 572px;
-  /* &:not(:nth-child(n + 3)) {
-    margin-right: 24px;
-  } */
-  &:not(:first-child) {
-    margin-left: 24px;
-  }
-  &:nth-child(n + 4) {
-    display: none;
-  }
-  border: 1px solid #d3eaff;
-  overflow: hidden;
-`;
 export const CardImg = styled.img`
   width: 100%;
   height: 100%;
@@ -159,7 +131,6 @@ export const CardText = styled.p`
   font-weight: 300;
   font-size: 24px;
   line-height: 29px;
-  /* display: flex; */
   align-items: center;
   text-align: center;
   padding: 16px 32px 0px 32px;
@@ -226,27 +197,7 @@ export const CardButton = styled.button`
 `;
 
 //CardsButtonsBlack
-export const RadioButtonsDiv = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-export const LabelsCtrl = styled.div`
-  &:not(:last-child) {
-    margin-right: 8px;
-  }
-  display: flex;
-`;
-
-export const sp1 = styled.span`
-  color: #000;
-`;
-
 export const Sp = styled.span`
-  /* &.custom-pagination {
-    display: none;
-  } */
-
   position: relative;
   margin-right: 24px;
   display: block;
