@@ -81,15 +81,14 @@ export const CardsSlider = () => {
           </CardsArrows>
         </CardsTopic>
         <Swiper
-          style={
-            {
-              // '--swiper-pagination-color': '#000',
-              // '--swiper-pagination-bullet-inactive-color': '#999999',
-              // '--swiper-pagination-bullet-inactive-opacity': '1',
-              // '--swiper-pagination-bullet-size': '12px',
-              // '--swiper-pagination-bullet-horizontal-gap': '6px',
-            }
-          }
+          style={{
+            'padding-bottom': '60px',
+            // '--swiper-pagination-color': '#000',
+            // '--swiper-pagination-bullet-inactive-color': '#999999',
+            // '--swiper-pagination-bullet-inactive-opacity': '1',
+            // '--swiper-pagination-bullet-size': '12px',
+            // '--swiper-pagination-bullet-horizontal-gap': '6px',
+          }}
           slidesPerView={3}
           spaceBetween={30}
           pagination={{
@@ -97,7 +96,15 @@ export const CardsSlider = () => {
             clickable: true,
             renderBullet: function (index, className, theme) {
               return ReactDOMServer.renderToStaticMarkup(
-                <span className={className} theme={theme}></span>
+                <span
+                  style={
+                    //   swiper-pagination-bullet-active:{
+                    {}
+                    // }
+                  }
+                  className={className}
+                  theme={theme}
+                ></span>
               );
             },
           }}
@@ -114,7 +121,9 @@ export const CardsSlider = () => {
           {data.rockets.map(({ id, name, description }, index) => (
             <SwiperSlide
               key={id}
-              className={slideIndex === index + 1 ? 'slide' : ''}
+              style={{
+                border: '1px solid #d3eaff',
+              }}
             >
               <CardsItemContainer>
                 <CardImg

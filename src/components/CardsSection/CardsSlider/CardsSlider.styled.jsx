@@ -25,24 +25,27 @@ export const CardsContainer = styled.div`
       transition: 300ms opacity;
       transform: translate3d(0, 0, 0);
       z-index: 10;
-      &.swiper-pagination-hidden {
-        opacity: 0;
-      }
-      .swiper-pagination-disabled > &,
-      &.swiper-pagination-disabled {
-        display: none !important;
-      }
     }
 
     .swiper-pagination-fraction,
     .swiper-pagination-custom,
     .swiper-horizontal > .swiper-pagination-bullets,
     .swiper-pagination-bullets.swiper-pagination-horizontal {
-      bottom: var(--swiper-pagination-bottom, 8px);
+      bottom: 20px;
       top: var(--swiper-pagination-top, auto);
       left: 0;
       width: 100%;
     }
+
+    span.swiper-pagination-bullet-active {
+      opacity: 1;
+      animation: scale 0.5s;
+    }
+    span.swiper-pagination-bullet-active ~ span::after {
+      opacity: 1;
+      animation: scale 0.5s;
+    }
+
     span {
       position: relative;
       margin-right: 24px;
@@ -82,9 +85,17 @@ export const CardsContainer = styled.div`
           animation: scale;
         }
       }
-      .swiper-pagination-bullet {
-        transform: scale(0.33);
-        position: relative;
+
+      @keyframes scale {
+        0% {
+          transform: translateY(-50%) scale(1.5);
+        }
+        50% {
+          transform: translateY(-50%) scale(0.5);
+        }
+        110% {
+          transform: translateY(-50%) scale(1);
+        }
       }
     }
   }
