@@ -90,7 +90,7 @@ export const CardsSlider = () => {
             // '--swiper-pagination-bullet-horizontal-gap': '6px',
           }}
           slidesPerView={3}
-          spaceBetween={30}
+          spaceBetween={24}
           pagination={{
             //el: '.swiper-pagination',
             clickable: true,
