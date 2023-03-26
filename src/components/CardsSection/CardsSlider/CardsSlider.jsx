@@ -123,6 +123,7 @@ export const CardsSlider = () => {
               key={id}
               style={{
                 border: '1px solid #d3eaff',
+                'max-width': '411px',
               }}
             >
               <CardsItemContainer>
