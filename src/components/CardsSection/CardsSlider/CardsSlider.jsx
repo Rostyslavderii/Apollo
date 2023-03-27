@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
@@ -27,6 +28,8 @@ import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
 export const CardsSlider = () => {
+  const [favorites, setFavotires] = useState([]);
+
   const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
   if (loading) return <p>Loading...</p>;
@@ -51,6 +54,7 @@ export const CardsSlider = () => {
           </CardsArrows>
         </CardsTopic>
         <Swiper
+          // favorites={this.state.favorites}
           style={{
             'padding-bottom': '60px',
           }}
@@ -92,7 +96,7 @@ export const CardsSlider = () => {
               </CardTextContainer>
               <ButtomList>
                 <CardButton to="/">buy</CardButton>
-                <FavoriteHeart />
+                <FavoriteHeart id={id} index={index} />
               </ButtomList>
             </SwiperSlide>
           ))}

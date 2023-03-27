@@ -1,10 +1,19 @@
 import { BiHeart } from 'react-icons/bi';
 import { FavoriteLink } from './FavoriteHeart.styled';
 
-export const FavoriteHeart = () => {
+export const FavoriteHeart = (index, id) => {
+  const addFavorites = () => {
+    console.log(index);
+    //console.log(data.rockets[index]);
+    console.log(id);
+  };
+
   return (
     <>
-      <FavoriteLink to="/favorite">
+      <FavoriteLink
+        onClick={addFavorites}
+        // to="/favorite"
+      >
         <BiHeart alt="FavoriteHeart" />
       </FavoriteLink>
     </>
