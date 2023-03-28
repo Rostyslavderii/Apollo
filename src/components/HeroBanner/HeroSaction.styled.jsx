@@ -126,7 +126,7 @@ export const LabelsCtrl = styled.div`
 
 export const Sp = styled.label`
   position: relative;
-  margin-right: 24px;
+  margin-right: 27px;
   display: block;
   color: #fff;
   cursor: pointer;
@@ -161,6 +161,27 @@ export const Sp = styled.label`
     &::after {
       opacity: 1;
       animation: scale;
+    }
+  }
+
+  &.slide {
+    opacity: 1;
+    animation: scale 0.5s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+    &::after {
+      left: -8px;
+      height: 24px;
+      width: 24px;
+      border: 2px solid white;
+      box-shadow: 0px 0px 6px 1px white;
+      opacity: 1;
     }
   }
 

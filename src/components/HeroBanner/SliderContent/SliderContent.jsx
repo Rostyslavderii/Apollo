@@ -7,22 +7,6 @@ import Images from '../../../apollo/Images.json';
 export const SliderContent = () => {
   const [slideIndex, setSlideIndex] = useState(1);
 
-  // const nextSlide = () => {
-  //   if (slideIndex !== Images.length) {
-  //     setSlideIndex(slideIndex + 1);
-  //   } else if (slideIndex === Images.length) {
-  //     setSlideIndex(1);
-  //   }
-  // };
-
-  // const prevSlide = () => {
-  //   if (slideIndex !== 1) {
-  //     setSlideIndex(slideIndex - 1);
-  //   } else if (slideIndex === 1) {
-  //     setSlideIndex(Images.length);
-  //   }
-  // };
-
   const moveInput = index => {
     setSlideIndex(index);
   };
@@ -32,11 +16,7 @@ export const SliderContent = () => {
       <Container>
         <List>
           {Images.map((image, index) => (
-            <Item
-              key={image.id}
-              //className={slideIndex === index + 1 ? 'slide' : ''}
-              slide={slideIndex === index + 1}
-            >
+            <Item key={image.id} slide={slideIndex === index + 1}>
               <Image
                 src={process.env.PUBLIC_URL + image.icon}
                 alt={image.description}
@@ -48,11 +28,14 @@ export const SliderContent = () => {
       <RadioButtonsDiv>
         <LabelsCtrl>
           {Array.from({ length: 3 }).map((item, index) => (
-            <Sp key={index} onClick={() => moveInput(index + 1)}></Sp>
+            <Sp
+              key={index}
+              className={slideIndex === index + 1 ? 'slide' : ''}
+              onClick={() => moveInput(index + 1)}
+            ></Sp>
           ))}
         </LabelsCtrl>
       </RadioButtonsDiv>
-      {/* <RadioInputs setSlideIndex={setSlideIndex} index={this.index} /> */}
     </>
   );
 };

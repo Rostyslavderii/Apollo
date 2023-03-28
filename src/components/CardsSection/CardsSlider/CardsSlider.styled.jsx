@@ -32,15 +32,27 @@ export const CardsContainer = styled.div`
     span.swiper-pagination-bullet-active {
       opacity: 1;
       animation: scale 0.5s;
-    }
-    span.swiper-pagination-bullet-active ~ span::after {
-      opacity: 1;
-      animation: scale 0.5s;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+      }
+      &::after {
+        left: -8px;
+        height: 24px;
+        width: 24px;
+        border: 2px solid black;
+        box-shadow: 0px 0px 6px 1px black;
+        opacity: 1;
+      }
     }
 
     span {
       position: relative;
-      margin-right: 24px;
+      margin-right: 27px;
       display: block;
       color: #000;
       cursor: pointer;

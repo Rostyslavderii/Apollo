@@ -5,7 +5,7 @@ export const FavoriteHeart = (index, id) => {
   const addFavorites = () => {
     console.log(index);
     //console.log(data.rockets[index]);
-    console.log(id);
+    // console.log(id);
   };
 
   return (
