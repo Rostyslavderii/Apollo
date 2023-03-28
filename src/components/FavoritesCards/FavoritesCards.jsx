@@ -1,9 +1,13 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
-
+//import { useSelector } from 'react-redux';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-
 import {
+  CardsItemContainer,
+  CardImg,
+  CardTextContainer,
+  CardName,
+  CardText,
   CardsTopic,
   CardsArrows,
   ArrowButton,
@@ -11,9 +15,20 @@ import {
 
 import 'swiper/css';
 import 'swiper/less/navigation';
+//import { createAction } from '@reduxjs/toolkit';
+
+import Images from '../../apollo/Images.json';
+import { useContext } from 'react';
 
 export const FavoritesCards = () => {
+  //const addTask = createAction('tasks/AddTask');
+  //  const value = useSelector(state => state.some.value);
+  const Icons = Images.map(image => image.icon);
+
   SwiperCore.use([Navigation]);
+
+  const data = useContext();
+  console.log(data, 'FavoritePage');
   return (
     <>
       <section>
@@ -38,13 +53,26 @@ export const FavoritesCards = () => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {' '}
-          <SwiperSlide
-            style={{
-              border: '1px solid #d3eaff',
-              'max-width': '411px',
-            }}
-          ></SwiperSlide>
+          {data.map(({ id, name, description }, index) => (
+            <SwiperSlide
+              key={id}
+              style={{
+                border: '1px solid #d3eaff',
+                'max-width': '411px',
+              }}
+            >
+              <CardsItemContainer>
+                <CardImg
+                  src={process.env.PUBLIC_URL + Icons[index]}
+                  alt={description}
+                />
+              </CardsItemContainer>
+              <CardTextContainer>
+                <CardName>{name}</CardName>
+                <CardText>{description}</CardText>
+              </CardTextContainer>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </section>
     </>

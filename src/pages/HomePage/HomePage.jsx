@@ -1,11 +1,11 @@
 import { CardsSection } from 'components/CardsSection/CardsSection';
 import { HeroBanner } from 'components/HeroBanner/HeroSection';
 
-const HomePage = () => {
+const HomePage = ({ id, name, description, counterReducer }) => {
   return (
     <>
       <HeroBanner></HeroBanner>
-      <CardsSection></CardsSection>
+      <CardsSection counterReducer={counterReducer}></CardsSection>
     </>
   );
 };

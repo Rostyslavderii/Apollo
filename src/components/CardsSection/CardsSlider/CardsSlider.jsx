@@ -1,4 +1,5 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+// import { configureStore } from '@reduxjs/toolkit';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
@@ -27,8 +28,10 @@ import 'swiper/css';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
-export const CardsSlider = () => {
-  const [favorites, setFavotires] = useState([]);
+//export const store = configureStore({reducer:counterReducer});
+
+export const CardsSlider = ({ counterReducer }) => {
+  // const [favorites, setFavotires] = useState([]);
 
   const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
@@ -39,6 +42,15 @@ export const CardsSlider = () => {
 
   SwiperCore.use([Pagination, Navigation]);
 
+  // const counterReducer = ({ id, description, name }) => {
+  //   const data = {
+  //     id: id,
+  //     description: description,
+  //     name: name,
+  //   };
+  //   setFavotires(prevState => [...prevState, data]);
+  //   console.log(favorites);
+  // };
   return (
     <>
       <CardsContainer>
@@ -61,7 +73,6 @@ export const CardsSlider = () => {
           slidesPerView={3}
           spaceBetween={24}
           pagination={{
-            //el: '.swiper-pagination',
             clickable: true,
             renderBullet: function (index, className) {
               return ReactDOMServer.renderToStaticMarkup(
@@ -96,7 +107,13 @@ export const CardsSlider = () => {
               </CardTextContainer>
               <ButtomList>
                 <CardButton to="/">buy</CardButton>
-                <FavoriteHeart id={id} index={index} />
+                <FavoriteHeart
+                  id={id}
+                  index={index}
+                  name={name}
+                  description={description}
+                  counterReducer={counterReducer}
+                />
               </ButtomList>
             </SwiperSlide>
           ))}
