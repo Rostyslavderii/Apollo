@@ -10,13 +10,13 @@ const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
 
 export const App = () => {
   const [favorites, setFavotires] = useState([]);
-  const favorites1 = ['hello world', 'dasdasd', 'World hello'];
+  //const favorites1 = ['hello world', 'dasdasd', 'World hello'];
 
   const counterReducer = product => {
     setFavotires(prevState => [...prevState, product]);
   };
 
-  //console.log(MyContext, 'App');
+  console.log(favorites, 'App');
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -24,7 +24,7 @@ export const App = () => {
 
         <Route
           path="favorite"
-          element={<FavoritePage favorites1={favorites1} />}
+          element={<FavoritePage favorites={favorites} />}
         />
       </Route>
     </Routes>

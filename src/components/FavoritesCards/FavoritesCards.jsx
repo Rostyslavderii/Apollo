@@ -19,6 +19,7 @@ import 'swiper/less/navigation';
 
 import Images from '../../apollo/Images.json';
 import { useContext } from 'react';
+import { MyContext } from '../../pages/FavoritePage/FavoritePage';
 
 export const FavoritesCards = () => {
   //const addTask = createAction('tasks/AddTask');
@@ -27,7 +28,7 @@ export const FavoritesCards = () => {
 
   SwiperCore.use([Navigation]);
 
-  const data = useContext();
+  const data = useContext(MyContext);
   console.log(data, 'FavoritePage');
   return (
     <>
