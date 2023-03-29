@@ -18,8 +18,7 @@ import 'swiper/less/navigation';
 //import { createAction } from '@reduxjs/toolkit';
 
 import Images from '../../apollo/Images.json';
-import { useContext } from 'react';
-import { MyContext } from '../../pages/FavoritePage/FavoritePage';
+import { useMyContext } from '../MyContext/MyContext';
 
 export const FavoritesCards = () => {
   //const addTask = createAction('tasks/AddTask');
@@ -28,8 +27,9 @@ export const FavoritesCards = () => {
 
   SwiperCore.use([Navigation]);
 
-  const data = useContext(MyContext);
-  console.log(data, 'FavoritePage');
+  const { favorites1 } = useMyContext();
+
+  console.log(favorites1, 'FavoritePage');
   return (
     <>
       <section>
@@ -54,7 +54,7 @@ export const FavoritesCards = () => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {data.map(({ id, name, description }, index) => (
+          {favorites1.map(({ id, name, description }, index) => (
             <SwiperSlide
               key={id}
               style={{
