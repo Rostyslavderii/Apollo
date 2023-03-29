@@ -1,5 +1,5 @@
-// import { useState } from 'react';
-// import { configureStore } from '@reduxjs/toolkit';
+import { useState } from 'react';
+import { configureStore } from '@reduxjs/toolkit';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
@@ -28,10 +28,26 @@ import 'swiper/css';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
-//export const store = configureStore({reducer:counterReducer});
+//reduxApp
+import { useSelector, useDispatch } from 'react-redux';
+import { statusFilters } from '../../redux/cards';
+// import { getStatusFilter } from '../../redux/selectors';
+// import { setStatusFilter } from '../../redux/actions';
+import { addToFavorites } from '../../redux/actions';
+import { getFavorites } from '../../redux/selectors';
 
-export const CardsSlider = ({ counterReducer }) => {
-  // const [favorites, setFavotires] = useState([]);
+// export const store = configureStore({reducer:counterReducer});
+
+const INITIAL_FORM_STATE = [];
+
+export const CardsSlider = () => {
+  const [favorites, setFavotires] = useState(INITIAL_FORM_STATE);
+
+  // let favReducer = favorites;
+  const favorit = useSelector(getFavorites);
+  const dispatch = useDispatch();
+  const filter = useSelector(getStatusFilter);
+  const handleFilterChange = filter => dispatch(setStatusFilter(filter));
 
   const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
@@ -42,18 +58,16 @@ export const CardsSlider = ({ counterReducer }) => {
 
   SwiperCore.use([Pagination, Navigation]);
 
-  // const counterReducer = ({ id, description, name }) => {
-  //   const data = {
-  //     id: id,
-  //     description: description,
-  //     name: name,
-  //   };
-  //   setFavotires(prevState => [...prevState, data]);
-  //   console.log(favorites);
-  // };
+  const counterReducer = favorite => {
+    setFavotires(prevState => [...prevState, favorite]);
+  };
+  console.log(favorites, 'SlideSaction');
   return (
     <>
-      <CardsContainer>
+      <CardsContainer
+        //Selected
+        selected={filter === statusFilters.all}
+      >
         <CardsTopic>
           <CardsH1>popular tours</CardsH1>
           <CardsArrows>

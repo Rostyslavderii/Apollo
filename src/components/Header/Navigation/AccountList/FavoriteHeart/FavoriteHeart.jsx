@@ -1,10 +1,7 @@
 import { BiHeart } from 'react-icons/bi';
 import { FavoriteLink } from './FavoriteHeart.styled';
-import { useMyContext } from 'components/MyContext/MyContext';
 
-export const FavoriteHeart = ({ id, description, name }) => {
-  const { counterReducer } = useMyContext();
-
+export const FavoriteHeart = ({ id, description, name, counterReducer }) => {
   return (
     <>
       <FavoriteLink

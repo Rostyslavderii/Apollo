@@ -1,11 +1,11 @@
 import { CardsSctn } from './CardsSection.styled';
 import { CardsSlider } from './CardsSlider/CardsSlider';
 
-export const CardsSection = ({ id, name, description, counterReducer }) => {
+export const CardsSection = () => {
   return (
     <>
       <CardsSctn id="hero2">
-        <CardsSlider counterReducer={counterReducer} />
+        <CardsSlider />
       </CardsSctn>
     </>
   );

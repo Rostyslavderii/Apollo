@@ -1,13 +1,9 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { FavoriteCard } from '../CardItem/FavoriteCard';
+import { Swiper } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
-//import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import {
-  CardsItemContainer,
-  CardImg,
-  CardTextContainer,
-  CardName,
-  CardText,
   CardsTopic,
   CardsArrows,
   ArrowButton,
@@ -15,21 +11,25 @@ import {
 
 import 'swiper/css';
 import 'swiper/less/navigation';
-//import { createAction } from '@reduxjs/toolkit';
 
-import Images from '../../apollo/Images.json';
-import { useMyContext } from '../MyContext/MyContext';
+//reduxApp
+import { useDispatch } from 'react-redux';
+import { deleteTask, toggleCompleted } from '../../redux/actions';
 
 export const FavoritesCards = () => {
-  //const addTask = createAction('tasks/AddTask');
-  //  const value = useSelector(state => state.some.value);
-  const Icons = Images.map(image => image.icon);
+  //cards
+  const tasks = useSelector(getTasks);
+  const statusFilter = useSelector(getStatusFilter);
+  const visibleTasks = getVisibleTasks(tasks, statusFilter); // map
+
+  //buttons delete
+  // const dispatch = useDispatch();
+  // const handleDelete = () => dispatch(deleteTask(task.id));
+  // const handleToggle = () => dispatch(toggleCompleted(task.id));
 
   SwiperCore.use([Navigation]);
-
-  const { favorites1 } = useMyContext();
-
-  console.log(favorites1, 'FavoritePage');
+  let favorites = [0];
+  console.log(favorites, 'FavoritePage');
   return (
     <>
       <section>
@@ -54,26 +54,18 @@ export const FavoritesCards = () => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {favorites1.map(({ id, name, description }, index) => (
-            <SwiperSlide
-              key={id}
-              style={{
-                border: '1px solid #d3eaff',
-                'max-width': '411px',
-              }}
-            >
-              <CardsItemContainer>
-                <CardImg
-                  src={process.env.PUBLIC_URL + Icons[index]}
-                  alt={description}
+          {favorites.length > 0 &&
+            favorites.map(({ id, name, description }) => {
+              return (
+                <FavoriteCard
+                  key={id}
+                  name={name}
+                  description={description}
+                  id={id}
+                  onDelete={onDelete}
                 />
-              </CardsItemContainer>
-              <CardTextContainer>
-                <CardName>{name}</CardName>
-                <CardText>{description}</CardText>
-              </CardTextContainer>
-            </SwiperSlide>
-          ))}
+              );
+            })}
         </Swiper>
       </section>
     </>
