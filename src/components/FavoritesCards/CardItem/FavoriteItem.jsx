@@ -1,4 +1,4 @@
-import Images from '../../apollo/Images.json';
+import Images from 'apollo/Images.json';
 import { SwiperSlide } from 'swiper/react';
 import 'swiper/less/navigation';
 import {
@@ -8,12 +8,13 @@ import {
   CardName,
   CardText,
 } from '../../CardsSection/CardsSlider/CardsSlider.styled';
-export const FavoriteCard = ({ id, onDelete, name, description }) => {
-  console.log(id);
-  // const dispatch = useDispatch();
-  // const handleDelete = () => dispatch(deleteTask(task.id));
-  // const handleToggle = () => dispatch(toggleCompleted(task.id));
 
+import { useDispatch } from 'react-redux';
+import { removeCard } from 'redux/reducer';
+
+export const FavoriteCard = ({ id, name, description, index }) => {
+  const dispatch = useDispatch();
+  //console.log(id, 'Item');
   const Icons = Images.map(image => image.icon);
   return (
     <SwiperSlide
@@ -35,7 +36,7 @@ export const FavoriteCard = ({ id, onDelete, name, description }) => {
         <button
           className="delete-contact-btn"
           type="button"
-          onClick={() => onDelete(id)}
+          onClick={() => dispatch(removeCard(id))}
         >
           Delete
         </button>

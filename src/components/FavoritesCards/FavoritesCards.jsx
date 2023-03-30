@@ -1,4 +1,4 @@
-import { FavoriteCard } from '../CardItem/FavoriteCard';
+import { FavoriteCard } from './CardItem/FavoriteItem';
 import { Swiper } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import { useSelector } from 'react-redux';
@@ -12,24 +12,19 @@ import {
 import 'swiper/css';
 import 'swiper/less/navigation';
 
-//reduxApp
-import { useDispatch } from 'react-redux';
-import { deleteTask, toggleCompleted } from '../../redux/actions';
-
 export const FavoritesCards = () => {
-  //cards
-  const tasks = useSelector(getTasks);
-  const statusFilter = useSelector(getStatusFilter);
-  const visibleTasks = getVisibleTasks(tasks, statusFilter); // map
+  const favoritesCard = useSelector(state => state.favoriteCard.favorites);
+  console.log(favoritesCard, 'favorites');
 
-  //buttons delete
-  // const dispatch = useDispatch();
-  // const handleDelete = () => dispatch(deleteTask(task.id));
-  // const handleToggle = () => dispatch(toggleCompleted(task.id));
+  //button delete
+  const removeCard = () => {
+    //console.log('removed');
+    //setFavotires(favorites.filter(favorite => favorite.id !== favoritesId));
+  };
 
   SwiperCore.use([Navigation]);
   let favorites = [0];
-  console.log(favorites, 'FavoritePage');
+  //console.log(favorites, 'FavoritePage');
   return (
     <>
       <section>
@@ -54,15 +49,16 @@ export const FavoritesCards = () => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {favorites.length > 0 &&
-            favorites.map(({ id, name, description }) => {
+          {favoritesCard.length > 0 &&
+            favoritesCard.map(({ id, name, description }, index) => {
               return (
                 <FavoriteCard
                   key={id}
                   name={name}
                   description={description}
                   id={id}
-                  onDelete={onDelete}
+                  index={index}
+                  removeCard={removeCard}
                 />
               );
             })}

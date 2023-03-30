@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { configureStore } from '@reduxjs/toolkit';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
 import {
@@ -29,25 +27,15 @@ import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
 //reduxApp
-import { useSelector, useDispatch } from 'react-redux';
-import { statusFilters } from '../../redux/cards';
-// import { getStatusFilter } from '../../redux/selectors';
-// import { setStatusFilter } from '../../redux/actions';
-import { addToFavorites } from '../../redux/actions';
-import { getFavorites } from '../../redux/selectors';
 
-// export const store = configureStore({reducer:counterReducer});
-
-const INITIAL_FORM_STATE = [];
+// const INITIAL_FORM_STATE = [];
 
 export const CardsSlider = () => {
-  const [favorites, setFavotires] = useState(INITIAL_FORM_STATE);
-
-  // let favReducer = favorites;
-  const favorit = useSelector(getFavorites);
-  const dispatch = useDispatch();
-  const filter = useSelector(getStatusFilter);
-  const handleFilterChange = filter => dispatch(setStatusFilter(filter));
+  // const [favorites, setFavotires] = useState(INITIAL_FORM_STATE);
+  // const favorit = useSelector(getFavorites);
+  // const dispatch = useDispatch();
+  // const filter = useSelector(getStatusFilter);
+  // const handleFilterChange = filter => dispatch(setStatusFilter(filter));
 
   const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
@@ -58,16 +46,13 @@ export const CardsSlider = () => {
 
   SwiperCore.use([Pagination, Navigation]);
 
-  const counterReducer = favorite => {
-    setFavotires(prevState => [...prevState, favorite]);
-  };
-  console.log(favorites, 'SlideSaction');
+  // const counterReducer = favorite => {
+  //   setFavotires(prevState => [...prevState, favorite]);
+  // };
+
   return (
     <>
-      <CardsContainer
-        //Selected
-        selected={filter === statusFilters.all}
-      >
+      <CardsContainer>
         <CardsTopic>
           <CardsH1>popular tours</CardsH1>
           <CardsArrows>
@@ -80,7 +65,6 @@ export const CardsSlider = () => {
           </CardsArrows>
         </CardsTopic>
         <Swiper
-          // favorites={this.state.favorites}
           style={{
             'padding-bottom': '60px',
           }}
@@ -126,7 +110,7 @@ export const CardsSlider = () => {
                   index={index}
                   name={name}
                   description={description}
-                  counterReducer={counterReducer}
+                  // counterReducer={counterReducer}
                 />
               </ButtomList>
             </SwiperSlide>

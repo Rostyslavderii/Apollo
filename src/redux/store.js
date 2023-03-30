@@ -1,11 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import {cardSlice} from './reducer'
 
-import { favoritesReducer } from './reducer';
 
 export const store = configureStore({
   reducer: {
-    favorites: favoritesReducer,
+    favoriteCard: cardSlice.reducer,
   },
-});
+})
 
-//const store = configureStore({ reducer: rootReducer });
