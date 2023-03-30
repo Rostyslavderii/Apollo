@@ -26,17 +26,7 @@ import 'swiper/css';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
-//reduxApp
-
-// const INITIAL_FORM_STATE = [];
-
 export const CardsSlider = () => {
-  // const [favorites, setFavotires] = useState(INITIAL_FORM_STATE);
-  // const favorit = useSelector(getFavorites);
-  // const dispatch = useDispatch();
-  // const filter = useSelector(getStatusFilter);
-  // const handleFilterChange = filter => dispatch(setStatusFilter(filter));
-
   const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
   if (loading) return <p>Loading...</p>;

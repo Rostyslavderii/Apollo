@@ -8,11 +8,9 @@ export const cardSlice = createSlice({
   },
   reducers: {
     counterReducer(state, action) {
-      //let newState = { ...state }
        //console.log(state)
       console.log(action)
     //  state.favorites.push(action.payload)
-
       state.favorites.push(
         {
           id: action.payload.id,
@@ -24,6 +22,11 @@ export const cardSlice = createSlice({
     removeCard(state, action) {
       state.favorites.filter(obj => obj.id !== action.payload.id)
     },
+
+    toggleCard(state, action) {
+      const toggledCard= state.favorites.find(obg => obg.id === action.payload.id)
+
+    }
   }
 });
 

@@ -17,14 +17,9 @@ export const FavoritesCards = () => {
   console.log(favoritesCard, 'favorites');
 
   //button delete
-  const removeCard = () => {
-    //console.log('removed');
-    //setFavotires(favorites.filter(favorite => favorite.id !== favoritesId));
-  };
 
   SwiperCore.use([Navigation]);
-  let favorites = [0];
-  //console.log(favorites, 'FavoritePage');
+
   return (
     <>
       <section>
@@ -58,7 +53,6 @@ export const FavoritesCards = () => {
                   description={description}
                   id={id}
                   index={index}
-                  removeCard={removeCard}
                 />
               );
             })}
