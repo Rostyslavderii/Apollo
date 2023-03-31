@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
 import { Provider } from "react-redux";
-import { store } from 'redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from 'redux/store';
 import { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyle } from './utils';
 import { ApolloProvider } from '@apollo/client';
@@ -15,12 +16,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/Apollo/">
       <Provider store={store}>
-      <ApolloProvider client={client}>
+        <ApolloProvider client={client}>
+          <PersistGate loading={null} persistor={persistor}>
       <ThemeProvider theme={theme}>
       <App />
-        <GlobalStyle />
-        </ThemeProvider>
-        </ApolloProvider>
+            <GlobalStyle />
+          </ThemeProvider>
+          </PersistGate>
+          </ApolloProvider>
         </Provider>
       </BrowserRouter>
   </React.StrictMode>

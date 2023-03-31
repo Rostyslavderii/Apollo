@@ -1,4 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+// export const fetchfavorites = createAsyncThunk(
+//   'favorites/fetchFavorites',
+//   async function () {
+//     const function = await fetch ()
+//   }
+// )
 
 
 export const cardSlice = createSlice({
@@ -10,12 +17,14 @@ export const cardSlice = createSlice({
     counterReducer(state, action) {
        //console.log(state)
       console.log(action)
+      const {id, description, name} = action.payload
     //  state.favorites.push(action.payload)
       state.favorites.push(
         {
-          id: action.payload.id,
-          description: action.payload.description,
-          name: action.payload.name,
+          id,
+          description,
+          name,
+          completed: false
         }
       )
     },

@@ -26,9 +26,13 @@ import 'swiper/css';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
+import { useSelector } from 'react-redux';
+
 export const CardsSlider = () => {
   const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
+  // const reduserCard = useSelector(state => state.favoriteCard.favorites);
+  // console.log(reduserCard, 'favorites');
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
@@ -105,6 +109,36 @@ export const CardsSlider = () => {
               </ButtomList>
             </SwiperSlide>
           ))}
+          {/* {reduserCard.length > 0 &&
+            reduserCard.map(({ id, name, description }, index) => {
+              return (
+                <SwiperSlide
+                  key={id}
+                  style={{
+                    border: '1px solid #d3eaff',
+                    'max-width': '411px',
+                  }}
+                >
+                  <CardsItemContainer>
+                    <CardImg
+                      src={process.env.PUBLIC_URL + Icons[index]}
+                      alt={description}
+                    />
+                  </CardsItemContainer>
+                  <CardTextContainer>
+                    <CardName>{name}</CardName>
+                    <CardText>{description}</CardText>
+                    <button
+                      className="delete-contact-btn"
+                      type="button"
+                      // onClick={() => dispatch(removeCard(id))}
+                    >
+                      Delete
+                    </button>
+                  </CardTextContainer>
+                </SwiperSlide>
+              );
+            })} */}
         </Swiper>
       </CardsContainer>
     </>

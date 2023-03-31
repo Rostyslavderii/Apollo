@@ -1,11 +1,18 @@
 import { Header } from 'components/Header/Header';
 import { Outlet } from 'react-router';
+import { Suspense } from 'react';
+
+function Spinner() {
+  return <h2>🌀 Loading...</h2>;
+}
 
 const Layout = () => {
   return (
     <>
-      <Header />
-      <Outlet />
+      <Suspense fallback={<Spinner />}>
+        <Header />
+        <Outlet />
+      </Suspense>
     </>
   );
 };
