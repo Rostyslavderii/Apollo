@@ -5,13 +5,13 @@ import { SliderContent } from './SliderContent/SliderContent';
 //   console.log(event.target.value);
 // };
 
-export const HeroBanner = () => {
+export const HeroBanner = ({ setFavorites }) => {
   return (
     <>
       <Banner>
         <SliderContent />
         <BannerText>
-          <H1>
+          <H1 onClick={() => setFavorites(elem => [...elem, 6])}>
             the space is waiting for<Big>you</Big>
           </H1>
         </BannerText>

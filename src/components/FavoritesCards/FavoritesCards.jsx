@@ -12,14 +12,14 @@ import {
 import 'swiper/css';
 import 'swiper/less/navigation';
 
-export const FavoritesCards = () => {
-  // const favoritesCard = useSelector(state => state.favoriteCard.favorites);
+export const FavoritesCards = ({ favorites, setFavorites }) => {
+  const favoritesCard = useSelector(state => state.favoriteCard.favorites);
   // console.log(favoritesCard, 'favorites');
 
   //button delete
 
   SwiperCore.use([Navigation]);
-  let favorites = [2];
+  // let favorites = [2];
 
   return (
     <>
@@ -49,6 +49,8 @@ export const FavoritesCards = () => {
             favorites.map(({ id, name, description }, index) => {
               return (
                 <FavoriteCard
+                  favorites={favorites}
+                  setFavorites={setFavorites}
                   key={id}
                   name={name}
                   description={description}

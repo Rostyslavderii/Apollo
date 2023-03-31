@@ -16,14 +16,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/Apollo/">
       <Provider store={store}>
-        <ApolloProvider client={client}>
           <PersistGate loading={null} persistor={persistor}>
+        <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
       <App />
             <GlobalStyle />
           </ThemeProvider>
-          </PersistGate>
           </ApolloProvider>
+          </PersistGate>
         </Provider>
       </BrowserRouter>
   </React.StrictMode>

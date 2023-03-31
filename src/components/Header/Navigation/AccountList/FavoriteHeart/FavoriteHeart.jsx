@@ -6,13 +6,13 @@ import { counterReducer } from 'redux/reducer';
 export const FavoriteHeart = ({ id, description, name }) => {
   const dispatch = useDispatch();
 
-  //const addFavorite = () => dispatch(counterReducer({ id, description, name }));
-  console.log(dispatch(counterReducer({ id, description, name })));
+  const addFavorite = () => dispatch(counterReducer({ id, description, name }));
+  //console.log(dispatch(counterReducer({ id, description, name })));
 
   return (
     <>
       <FavoriteLink
-        onClick={() => dispatch(counterReducer({ id, description, name }))}
+        onClick={() => addFavorite}
         // to="/favorite"
       >
         <BiHeart alt="FavoriteHeart" />

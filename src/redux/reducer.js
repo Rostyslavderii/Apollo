@@ -15,10 +15,10 @@ export const cardSlice = createSlice({
   },
   reducers: {
     counterReducer(state, action) {
-       //console.log(state)
+      console.log(state)
       console.log(action)
       const {id, description, name} = action.payload
-    //  state.favorites.push(action.payload)
+
       state.favorites.push(
         {
           id,

@@ -1,11 +1,17 @@
 import { CardsSection } from 'components/CardsSection/CardsSection';
 import { HeroBanner } from 'components/HeroBanner/HeroSection';
 
-const HomePage = ({ id, name, description, counterReducer }) => {
+const HomePage = ({ favorites, setFavorites }) => {
   return (
     <>
-      <HeroBanner></HeroBanner>
-      <CardsSection counterReducer={counterReducer}></CardsSection>
+      <HeroBanner
+        favorites={favorites}
+        setFavorites={setFavorites}
+      ></HeroBanner>
+      <CardsSection
+        favorites={favorites}
+        setFavorites={setFavorites}
+      ></CardsSection>
     </>
   );
 };

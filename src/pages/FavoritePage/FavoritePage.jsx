@@ -1,11 +1,11 @@
 import { FavoriteBanner } from 'components/FavoriteBanner/FavoriteBanner';
 import { FavoritesCards } from 'components/FavoritesCards/FavoritesCards';
 
-const FavoritePage = () => {
+const FavoritePage = ({ favorites, setFavorites }) => {
   return (
     <>
       <FavoriteBanner />
-      <FavoritesCards />
+      <FavoritesCards favorites={favorites} setFavorites={setFavorites} />
     </>
   );
 };

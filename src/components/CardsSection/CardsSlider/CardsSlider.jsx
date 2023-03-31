@@ -28,7 +28,7 @@ import 'swiper/less/pagination';
 
 import { useSelector } from 'react-redux';
 
-export const CardsSlider = () => {
+export const CardsSlider = ({ favorites, setFavorites }) => {
   const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
   // const reduserCard = useSelector(state => state.favoriteCard.favorites);
@@ -44,6 +44,7 @@ export const CardsSlider = () => {
   //   setFavotires(prevState => [...prevState, favorite]);
   // };
 
+  console.log(favorites, 'CardSlider');
   return (
     <>
       <CardsContainer>
@@ -98,13 +99,17 @@ export const CardsSlider = () => {
                 <CardText>{description}</CardText>
               </CardTextContainer>
               <ButtomList>
-                <CardButton to="/">buy</CardButton>
+                <CardButton
+                  type="button"
+                  onClick={() => setFavorites(favorite => [...favorite, 1])}
+                >
+                  buy
+                </CardButton>
                 <FavoriteHeart
                   id={id}
                   index={index}
                   name={name}
                   description={description}
-                  // counterReducer={counterReducer}
                 />
               </ButtomList>
             </SwiperSlide>

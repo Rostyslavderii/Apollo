@@ -12,10 +12,18 @@ import {
 import { useDispatch } from 'react-redux';
 import { removeCard } from 'redux/reducer';
 
-export const FavoriteCard = ({ id, name, description, index }) => {
+export const FavoriteCard = ({
+  id,
+  name,
+  description,
+  index,
+  favorites,
+  setFavorites,
+}) => {
   const dispatch = useDispatch();
   //console.log(id, 'Item');
   const Icons = Images.map(image => image.icon);
+  console.log(favorites, 'FavoriteItem');
   return (
     <SwiperSlide
       key={id}
@@ -36,7 +44,7 @@ export const FavoriteCard = ({ id, name, description, index }) => {
         <button
           className="delete-contact-btn"
           type="button"
-          onClick={() => dispatch(removeCard(id))}
+          onClick={() => setFavorites(favorite => [...favorite, 2])}
         >
           Delete
         </button>
