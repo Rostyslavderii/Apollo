@@ -9,9 +9,6 @@ import {
   CardText,
 } from '../../CardsSection/CardsSlider/CardsSlider.styled';
 
-import { useDispatch } from 'react-redux';
-import { removeCard } from 'redux/reducer';
-
 export const FavoriteCard = ({
   id,
   name,
@@ -20,10 +17,8 @@ export const FavoriteCard = ({
   favorites,
   setFavorites,
 }) => {
-  const dispatch = useDispatch();
   //console.log(id, 'Item');
   const Icons = Images.map(image => image.icon);
-  console.log(favorites, 'FavoriteItem');
   return (
     <SwiperSlide
       key={id}

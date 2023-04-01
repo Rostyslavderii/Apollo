@@ -9,3 +9,9 @@ export const GET_ALL_ROCKETS = gql`
     }
   }
 `;
+
+export const GET_CART_ITEMS = gql`
+  query GetCartItems {
+    cartItems @client
+  }
+`;

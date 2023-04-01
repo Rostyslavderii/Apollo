@@ -31,8 +31,6 @@ import { useSelector } from 'react-redux';
 export const CardsSlider = ({ favorites, setFavorites }) => {
   const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
 
-  // const reduserCard = useSelector(state => state.favoriteCard.favorites);
-  // console.log(reduserCard, 'favorites');
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
@@ -40,11 +38,6 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
 
   SwiperCore.use([Pagination, Navigation]);
 
-  // const counterReducer = favorite => {
-  //   setFavotires(prevState => [...prevState, favorite]);
-  // };
-
-  console.log(favorites, 'CardSlider');
   return (
     <>
       <CardsContainer>

@@ -1,7 +1,8 @@
 import { FavoriteCard } from './CardItem/FavoriteItem';
 import { Swiper } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
-import { useSelector } from 'react-redux';
+import { useQuery } from '@apollo/client';
+import { GET_CART_ITEMS } from 'apollo/apolloAPI';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import {
   CardsTopic,
@@ -13,9 +14,11 @@ import 'swiper/css';
 import 'swiper/less/navigation';
 
 export const FavoritesCards = ({ favorites, setFavorites }) => {
-  const favoritesCard = useSelector(state => state.favoriteCard.favorites);
-  // console.log(favoritesCard, 'favorites');
+  const { data, loading, error } = useQuery(GET_CART_ITEMS);
 
+  if (loading) return <p>...Loading</p>;
+
+  if (error) return <p>ERROR: {error.message}</p>;
   //button delete
 
   SwiperCore.use([Navigation]);
@@ -45,8 +48,8 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {favorites.length > 0 &&
-            favorites.map(({ id, name, description }, index) => {
+          {data.length > 0 &&
+            data.map(({ id, name, description }, index) => {
               return (
                 <FavoriteCard
                   favorites={favorites}
