@@ -4,7 +4,7 @@ import { GET_ROCKET_ITEMS, GET_ROCKET } from './apolloAPI';
 //import { AsyncStorage } from 'react-native';
 import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
 
-export const cartItemsVar = makeVar([0]);
+export const cartItemsVar = makeVar([null]);
 console.log(cartItemsVar(), 'cache');
 
 export const cache = new InMemoryCache({

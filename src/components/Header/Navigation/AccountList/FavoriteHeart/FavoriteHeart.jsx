@@ -16,12 +16,12 @@ export const FavoriteHeart = ({ id, description, name }) => {
   });
 
   const cartItems = useReactiveVar(cartItemsVar);
-  console.log(data.rocket, 'cartItems');
-  console.log(cartItems, 'cartItemsVar');
+  // console.log(data.rocket, 'cartItems');
+  // console.log(cartItems, 'cartItemsVar');
 
   function card(productId) {
     cartItemsVar([...cartItemsVar(), productId]);
-    //console.log(cartItemsVar());
+    console.log(cartItemsVar());
   }
   const addApollo = () => {};
   //console.log(addApollo);
@@ -29,9 +29,9 @@ export const FavoriteHeart = ({ id, description, name }) => {
   //console.log(cartItemsVar, 'favoriteHeart');
   return (
     <>
-      {cartItems.map(cardId => {
+      {/* {cartItems.map(cardId => {
         const cardById = data.rocket.find(elem => elem.id === cardId);
-      })}
+      })} */}
       <FavoriteLink
         onClick={() => card(id)}
         // to="/favorite"

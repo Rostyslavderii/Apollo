@@ -20,8 +20,6 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
   const { data, loading, error } = useQuery(GET_ROCKET);
 
   const cartItems = useReactiveVar(cartItemsVar);
-  console.log(data.rocket, 'cartItems');
-  console.log(cartItems, 'cartItemsVar');
   if (loading) return <p>...Loading</p>;
 
   if (error) return <p>ERROR: {error.message}</p>;
@@ -31,9 +29,9 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
 
   return (
     <>
-      {cartItems.map(cardId => {
+      {/* {cartItems.map(cardId => {
         const cardById = data.rocket.find(elem => elem.id === cardId);
-      })}
+      })} */}
       <section>
         <CardsTopic>
           <CardsArrows>
