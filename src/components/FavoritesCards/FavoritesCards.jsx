@@ -2,7 +2,9 @@ import { FavoriteCard } from './CardItem/FavoriteItem';
 import { Swiper } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import { useQuery } from '@apollo/client';
-import { GET_CART_ITEMS } from 'apollo/apolloAPI';
+import { cartItemsVar } from 'apollo/cache';
+import { GET_ROCKET } from 'apollo/apolloAPI';
+
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import {
   CardsTopic,
@@ -12,20 +14,26 @@ import {
 
 import 'swiper/css';
 import 'swiper/less/navigation';
+import { useReactiveVar } from '@apollo/client';
 
 export const FavoritesCards = ({ favorites, setFavorites }) => {
-  const { data, loading, error } = useQuery(GET_CART_ITEMS);
+  const { data, loading, error } = useQuery(GET_ROCKET);
 
+  const cartItems = useReactiveVar(cartItemsVar);
+  console.log(data.rocket, 'cartItems');
+  console.log(cartItems, 'cartItemsVar');
   if (loading) return <p>...Loading</p>;
 
   if (error) return <p>ERROR: {error.message}</p>;
-  //button delete
 
   SwiperCore.use([Navigation]);
   // let favorites = [2];
 
   return (
     <>
+      {cartItems.map(cardId => {
+        const cardById = data.rocket.find(elem => elem.id === cardId);
+      })}
       <section>
         <CardsTopic>
           <CardsArrows>
@@ -49,7 +57,7 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
           className="mySwiper"
         >
           {data.length > 0 &&
-            data.map(({ id, name, description }, index) => {
+            data.cartItems.map(({ id, name, description }, index) => {
               return (
                 <FavoriteCard
                   favorites={favorites}

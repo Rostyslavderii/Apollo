@@ -1,4 +1,6 @@
 import { gql } from '@apollo/client';
+import { makeVar } from '@apollo/client';
+import { InMemoryCache } from '@apollo/client';
 
 export const GET_ALL_ROCKETS = gql`
   query RocketsQuery {
@@ -10,8 +12,18 @@ export const GET_ALL_ROCKETS = gql`
   }
 `;
 
-export const GET_CART_ITEMS = gql`
-  query GetCartItems {
+export const GET_ROCKET = gql`
+  query GetRocket($rocketId: ID!) {
+    rocket(id: $rocketId) {
+      id
+      description
+      name
+    }
+  }
+`;
+
+export const GET_ROCKET_ITEMS = gql`
+  query LocalRocket {
     cartItems @client
   }
 `;
