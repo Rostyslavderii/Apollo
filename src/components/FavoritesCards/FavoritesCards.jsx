@@ -15,11 +15,25 @@ import {
 import 'swiper/css';
 import 'swiper/less/navigation';
 import { useReactiveVar } from '@apollo/client';
+import { gql } from '@apollo/client';
+import { useEffect } from 'react';
+import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
+export const GET_ROCKET_ITEMS = gql`
+  query LocalRocket {
+    cartItems @client
+  }
+`;
 
 export const FavoritesCards = ({ favorites, setFavorites }) => {
-  const { data, loading, error } = useQuery(GET_ROCKET);
-
+  // const { data, loading, error } = useQuery(GET_ROCKET, {
+  //   variables: { rocketId: '5e9d0d95eda69955f709d1eb' },
+  // });
+  const { data, loading, error } = useQuery(GET_ROCKET_ITEMS);
   const cartItems = useReactiveVar(cartItemsVar);
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItemsVar]);
+
   if (loading) return <p>...Loading</p>;
 
   if (error) return <p>ERROR: {error.message}</p>;

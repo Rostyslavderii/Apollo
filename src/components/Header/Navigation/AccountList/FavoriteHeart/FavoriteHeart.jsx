@@ -11,27 +11,15 @@ import { useReactiveVar } from '@apollo/client';
 import { useEffect } from 'react';
 
 export const FavoriteHeart = ({ id, description, name }) => {
-  const { data, loading, error } = useQuery(GET_ROCKET, {
-    variables: { rocketId: id },
-  });
-
   const cartItems = useReactiveVar(cartItemsVar);
-  // console.log(data.rocket, 'cartItems');
-  // console.log(cartItems, 'cartItemsVar');
 
   function card(productId) {
     cartItemsVar([...cartItemsVar(), productId]);
     console.log(cartItemsVar());
   }
-  const addApollo = () => {};
-  //console.log(addApollo);
 
-  //console.log(cartItemsVar, 'favoriteHeart');
   return (
     <>
-      {/* {cartItems.map(cardId => {
-        const cardById = data.rocket.find(elem => elem.id === cardId);
-      })} */}
       <FavoriteLink
         onClick={() => card(id)}
         // to="/favorite"
