@@ -10,7 +10,7 @@ const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
 
 export const App = () => {
   const [favorites, setFavorites] = useState([0]);
-
+  console.log(favorites, 'app');
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

@@ -30,16 +30,20 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
   // });
   const { data, loading, error } = useQuery(GET_ROCKET_ITEMS);
   const cartItems = useReactiveVar(cartItemsVar);
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItemsVar]);
+
+  // useEffect(() => {
+  //   console.log(cartItems);
+  // }, [cartItemsVar]);
 
   if (loading) return <p>...Loading</p>;
 
   if (error) return <p>ERROR: {error.message}</p>;
 
   SwiperCore.use([Navigation]);
-  // let favorites = [2];
+  console.log(favorites, 'favoritePage');
+  // useEffect(() => {
+  //   console.log(favorites, 'favoritePage');
+  // }, [favorites]);
 
   return (
     <>
