@@ -7,7 +7,12 @@ export const Nav = styled.ul`
   display: flex;
   gap: 32px;
 `;
+
 export const NavLinks = styled(NavLink)`
+  &.${props => props.activeClassName} {
+    color: red;
+  }
+
   text-transform: uppercase;
   text-decoration: none;
   color: white;
@@ -16,6 +21,15 @@ export const NavLinks = styled(NavLink)`
     padding-bottom: 4px;
     box-shadow: 0px 1.2px 0px rgb(255, 255, 255);
   }
+
+  &.selected {
+    color: #ff0000; // red
+  }
+
+  &.${({ isActive }) => (isActive ? 'active=card' : '')} {
+    color: red;
+  }
+
   &:hover,
   &:focus {
     padding-bottom: 4px;

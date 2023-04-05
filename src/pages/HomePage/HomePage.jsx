@@ -4,10 +4,7 @@ import { HeroBanner } from 'components/HeroBanner/HeroSection';
 const HomePage = ({ favorites, setFavorites }) => {
   return (
     <>
-      <HeroBanner
-        favorites={favorites}
-        setFavorites={setFavorites}
-      ></HeroBanner>
+      <HeroBanner></HeroBanner>
       <CardsSection
         favorites={favorites}
         setFavorites={setFavorites}

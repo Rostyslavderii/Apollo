@@ -5,7 +5,13 @@ export const NavList = () => {
     <>
       <Nav>
         <NavLi>
-          <NavLinks to="/">Home</NavLinks>
+          <NavLinks
+            to="/"
+            //className={({ isActive }) => (isActive ? 'active-card' : '')}
+            activeClassName="selected"
+          >
+            Home
+          </NavLinks>
         </NavLi>
         <NavLi>
           <NavLinks

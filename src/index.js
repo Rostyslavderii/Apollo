@@ -11,14 +11,12 @@ import {client} from './apollo/clientAPI';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/Apollo/">
         <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
       <App />
             <GlobalStyle />
           </ThemeProvider>
           </ApolloProvider>
-      </BrowserRouter>
   </React.StrictMode>
 );
 

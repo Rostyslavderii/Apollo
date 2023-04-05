@@ -34,3 +34,7 @@ console.log(
     storage: new LocalStorageWrapper(window.localStorage),
   })
 );
+
+window.addEventListener('storage', () => {
+  console.log('storage has changed');
+});

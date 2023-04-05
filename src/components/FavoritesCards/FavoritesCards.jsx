@@ -16,8 +16,9 @@ import 'swiper/css';
 import 'swiper/less/navigation';
 import { useReactiveVar } from '@apollo/client';
 import { gql } from '@apollo/client';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
+import { cardContext } from 'apollo/useContext';
 export const GET_ROCKET_ITEMS = gql`
   query LocalRocket {
     cartItems @client
@@ -25,22 +26,20 @@ export const GET_ROCKET_ITEMS = gql`
 `;
 
 export const FavoritesCards = ({ favorites, setFavorites }) => {
-  // const { data, loading, error } = useQuery(GET_ROCKET, {
-  //   variables: { rocketId: '5e9d0d95eda69955f709d1eb' },
-  // });
+  useEffect(() => {}, []);
+
   const { data, loading, error } = useQuery(GET_ROCKET_ITEMS);
   const cartItems = useReactiveVar(cartItemsVar);
 
-  // useEffect(() => {
-  //   console.log(cartItems);
-  // }, [cartItemsVar]);
+  const { card } = useContext(cardContext);
 
+  console.log(card, 'card');
   if (loading) return <p>...Loading</p>;
 
   if (error) return <p>ERROR: {error.message}</p>;
 
   SwiperCore.use([Navigation]);
-  console.log(favorites, 'favoritePage');
+
   // useEffect(() => {
   //   console.log(favorites, 'favoritePage');
   // }, [favorites]);
@@ -72,7 +71,7 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {data.length > 0 &&
+          {data?.cartItems?.length > 0 &&
             data.cartItems.map(({ id, name, description }, index) => {
               return (
                 <FavoriteCard

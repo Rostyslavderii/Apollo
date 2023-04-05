@@ -6,13 +6,13 @@ function Spinner() {
   return <h2>🌀 Loading...</h2>;
 }
 
-const Layout = ({ favorites, setFavorites }) => {
+const Layout = () => {
   return (
     <>
       <Suspense fallback={<Spinner />}>
         <Header />
-        <Outlet favorites={favorites} setFavorites={setFavorites} />
       </Suspense>
+      <Outlet />
     </>
   );
 };
