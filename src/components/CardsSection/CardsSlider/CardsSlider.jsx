@@ -33,6 +33,8 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
   const { loading, error, data, refetch, networkStatus } = useQuery(
     GET_ALL_ROCKETS,
     {
+      fetchPolicy: 'network-only',
+      // nextFetchPolicy: 'cache-first',
       notifyOnNetworkStatusChange: true,
     }
   );

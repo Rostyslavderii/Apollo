@@ -14,7 +14,7 @@ import { useMutation } from '@apollo/client';
 export const FavoriteHeart = ({ id, description, name }) => {
   const cartItems = useReactiveVar(cartItemsVar);
   const [GetRocket, { data, loading, error }] = useLazyQuery(GET_ROCKET, {
-    variables: { id: id },
+    variables: { $rocketId: id },
   });
   const { getCard } = useContext(cardContext);
   function card(productId) {
@@ -26,23 +26,18 @@ export const FavoriteHeart = ({ id, description, name }) => {
     console.log(localStorage.getItem('apollo-cache-persist'));
   }
 
-  function addToRocket({ id, description, name }) {
-    console.log(id);
-    GetRocket({ variables: { $rocketId: id } });
-    GetRocket({ variables: { id: id } });
-    console.log(
-      GetRocket({ variables: { id: id } }),
-      GetRocket({ variables: { $rocketId: id } })
-    );
+  function addToRocket(rocketId) {
+    GetRocket({ variables: { rocketId: rocketId } });
+    //GetRocket({ variables: { id: id } });
+    //console.log(GetRocket({ variables: { $id: id } }));
+    //console.log(GetRocket({ variables: { rocketId: rocketId } }));
+    console.log(data);
   }
 
-  // function refeaching({ id, description, name }) {
-  //   refetch({ $rocketId: id });
-  // }
   return (
     <>
       <FavoriteLink
-        onClick={() => addToRocket({ id, description, name })}
+        onClick={() => addToRocket(id)}
         // to="/favorite"
       >
         <BiHeart alt="FavoriteHeart" />

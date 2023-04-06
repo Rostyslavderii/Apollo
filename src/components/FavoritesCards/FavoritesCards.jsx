@@ -18,6 +18,8 @@ import { gql } from '@apollo/client';
 import { useContext, useEffect } from 'react';
 import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
 import { cardContext } from 'apollo/useContext';
+import { useLazyQuery } from '@apollo/client';
+import { GET_ROCKET } from 'apollo/apolloAPI';
 export const GET_ROCKET_ITEMS = gql`
   query LocalRocket {
     cartItems @client
@@ -26,13 +28,13 @@ export const GET_ROCKET_ITEMS = gql`
 
 export const FavoritesCards = ({ favorites, setFavorites }) => {
   useEffect(() => {}, []);
+  const [GetRocket, { data, loading, error }] = useLazyQuery(GET_ROCKET);
 
-  const { data, loading, error } = useQuery(GET_ROCKET_ITEMS);
   const cartItems = useReactiveVar(cartItemsVar);
 
   const { card } = useContext(cardContext);
 
-  console.log(card, 'card');
+  console.log(data, 'card');
   if (loading) return <p>...Loading</p>;
 
   if (error) return <p>ERROR: {error.message}</p>;
