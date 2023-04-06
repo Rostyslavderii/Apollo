@@ -17,6 +17,7 @@ import {
 //ApolloApi
 import { GET_ALL_ROCKETS } from '../../../apollo/apolloAPI';
 import { useQuery } from '@apollo/client';
+import { NetworkStatus } from '@apollo/client';
 import Images from '../../../apollo/Images.json';
 import * as ReactDOMServer from 'react-dom/server';
 //swiper
@@ -29,8 +30,13 @@ import 'swiper/less/pagination';
 import { useSelector } from 'react-redux';
 
 export const CardsSlider = ({ favorites, setFavorites }) => {
-  const { loading, error, data } = useQuery(GET_ALL_ROCKETS);
-
+  const { loading, error, data, refetch, networkStatus } = useQuery(
+    GET_ALL_ROCKETS,
+    {
+      notifyOnNetworkStatusChange: true,
+    }
+  );
+  if (networkStatus === NetworkStatus.refetch) return 'Refetching!';
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 

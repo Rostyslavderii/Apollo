@@ -1,7 +1,11 @@
 import { FavoriteBanner } from 'components/FavoriteBanner/FavoriteBanner';
 import { FavoritesCards } from 'components/FavoritesCards/FavoritesCards';
+import { useContext } from 'react';
+import { cardContext } from 'apollo/useContext';
 
 const FavoritePage = ({ favorites, setFavorites }) => {
+  const { card } = useContext(cardContext);
+  console.log(card, 'card');
   return (
     <>
       <FavoriteBanner />

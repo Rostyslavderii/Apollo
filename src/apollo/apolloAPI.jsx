@@ -25,3 +25,13 @@ export const GET_ROCKET_ITEMS = gql`
     cartItems @client
   }
 `;
+
+export const ADD_ROCKET = gql`
+  mutation AddRocket($rocketId: ID!) {
+    addTodo(id: $rocketId) {
+      id
+      description
+      name
+    }
+  }
+`;

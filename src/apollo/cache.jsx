@@ -15,7 +15,7 @@ export const cache = new InMemoryCache({
       fields: {
         cartItems: {
           read() {
-            return cartItemsVar();
+            return JSON.parse(JSON.stringify(cartItemsVar()));
           },
         },
       },

@@ -4,20 +4,18 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-
-import { useState } from 'react';
 import { lazy } from 'react';
-
-import Layout from './Layout/Layout';
+import Layout, { Spinner } from './Layout/Layout';
 import { MyContext } from 'apollo/useContext';
+import { json } from 'react-router-dom';
 
-import HomePage from 'pages/HomePage/HomePage';
-import FavoritePage from 'pages/FavoritePage/FavoritePage';
-// const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
-// const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
 
 export const blogLoader = async ({ request, params }) => {
-  return console.log({ request, params });
+  const data = { some: params };
+  console.log(params, 'loader');
+  return json(data, { status: 200 });
 };
 
 const router = createBrowserRouter(
@@ -30,14 +28,20 @@ const router = createBrowserRouter(
         }
       />
       <Route
-        path="favorite"
+        path="/favorite"
+        loader={blogLoader}
         element={
           <FavoritePage favorites={'favorites'} setFavorites={'setFavorites'} />
         }
-        loader={blogLoader}
       />
     </Route>
-  )
+  ),
+  {
+    basename: '/Apollo/',
+    future: {
+      v7_normalizeFormMethod: true,
+    },
+  }
 );
 
 export const App = () => {

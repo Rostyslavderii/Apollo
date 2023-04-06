@@ -3,7 +3,6 @@ import { Swiper } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import { useQuery } from '@apollo/client';
 import { cartItemsVar } from 'apollo/cache';
-import { GET_ROCKET } from 'apollo/apolloAPI';
 
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import {
@@ -40,10 +39,6 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
 
   SwiperCore.use([Navigation]);
 
-  // useEffect(() => {
-  //   console.log(favorites, 'favoritePage');
-  // }, [favorites]);
-
   return (
     <>
       {/* {cartItems.map(cardId => {
@@ -71,7 +66,7 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {data?.cartItems?.length > 0 &&
+          {data?.length > 0 &&
             data.cartItems.map(({ id, name, description }, index) => {
               return (
                 <FavoriteCard
