@@ -11,17 +11,20 @@ import { cardContext } from 'apollo/useContext';
 import { ADD_ROCKET } from 'apollo/apolloAPI';
 import { useMutation } from '@apollo/client';
 import { useNavigation } from 'react-router';
+
 export const FavoriteHeart = ({ id, description, name }) => {
   const client = useApolloClient();
   const navigation = useNavigation();
-  const [GetRocket, { data, loading, error }] = useLazyQuery(GET_ROCKET, {
-    variables: { $rocketId: id },
-  });
-  const { getCard } = useContext(cardContext);
 
-  function card(productId) {
+  const [GetRocket, { data, loading, error }] = useLazyQuery(GET_ROCKET, {
+    variables: { rocketId: id },
+  });
+  const { getCard, card } = useContext(cardContext);
+  console.log(getCard, 'context');
+
+  function cards(productId) {
     cartItemsVar([...cartItemsVar(), productId]);
-    //console.log(cartItemsVar());
+    //console.log(cartItemsVar(), 'what');
   }
 
   async function addToRocket(rocketId) {
@@ -33,14 +36,14 @@ export const FavoriteHeart = ({ id, description, name }) => {
         rocketId,
       },
     });
-    console.log(data);
-    console.log(cartItemsVar());
+    console.log(data); //rocket est !
+    console.log(cartItemsVar()); // makeVar = [id] est !
   }
 
   return (
     <>
       <FavoriteLink
-        onClick={() => addToRocket(id)}
+        onClick={() => getCard(id)}
         // to="/favorite"
       >
         <BiHeart alt="FavoriteHeart" />

@@ -27,37 +27,36 @@ export const GET_ROCKET_ITEMS = gql`
 `;
 
 export const FavoritesCards = ({ favorites, setFavorites }) => {
-  useEffect(() => {}, []);
   const client = useApolloClient();
-  console.log(client.cache.data, 'kash');
-  const rocketId = '5e9d0d95eda69955f709d1eb';
-  const [GetRocket, { data, loading, error }] = useLazyQuery(GET_ROCKET, {
-    variables: { $rocketId: rocketId },
-  });
+  // console.log(client.cache.data, 'kash'); // kash est s perou stranitsy
 
-  console.log(data, 'data1');
-  const cartItems = useReactiveVar(cartItemsVar);
+  const rocketId = '5e9d0d95eda69955f709d1eb';
+
+  const { data, loading, error } = useQuery(GET_ROCKET, {
+    variables: { rocketId: rocketId },
+  });
+  //console.log(data, 'data1'); //undef
+
+  const cartItems = useReactiveVar(cartItemsVar); //!!
+
+  //console.log(cartItems, 'makeVar'); // null
 
   async function addToRocket(rocketId) {
-    const { data } = await client.query({
+    const { data } = await client.readQuery({
       query: GET_ROCKET,
       variables: {
-        rocketId: rocketId,
+        rocketId,
       },
     });
     addToRocket(rocketId);
-    console.log(data, 'data');
+    // console.log(data, 'data');
   }
 
-  console.log(addToRocket());
-  //const [GetRocket, { data, loading, error }] = useLazyQuery(GET_ROCKET);
+  // console.log(addToRocket(), 'promise');
 
   const { card } = useContext(cardContext);
+  console.log(card, ' card context');
   const local = localStorage.getItem('');
-  //console.log(data, 'Client');
-  // if (loading) return <p>...Loading</p>;
-
-  // if (error) return <p>ERROR: {error.message}</p>;
 
   SwiperCore.use([Navigation]);
 
