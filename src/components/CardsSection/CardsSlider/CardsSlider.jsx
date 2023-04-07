@@ -14,6 +14,8 @@ import {
   ButtomList,
   CardButton,
 } from './CardsSlider.styled';
+import { useReactiveVar } from '@apollo/client';
+import { cartItemsVar } from 'apollo/cache';
 //ApolloApi
 import { GET_ALL_ROCKETS } from '../../../apollo/apolloAPI';
 import { useQuery } from '@apollo/client';

@@ -35,3 +35,14 @@ export const ADD_ROCKET = gql`
     }
   }
 `;
+export const ADD_ROCKET2 = gql`
+  mutation RocketAdd2($objects: [users_insert_input!]!) {
+    insert_users(objects: $objects) {
+      returning {
+        id
+        name
+        rocket
+      }
+    }
+  }
+`;
