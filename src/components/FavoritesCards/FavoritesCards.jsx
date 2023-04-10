@@ -16,9 +16,9 @@ import 'swiper/less/navigation';
 import { useReactiveVar } from '@apollo/client';
 import { gql } from '@apollo/client';
 import { useContext, useEffect } from 'react';
-import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
+//import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
 import { cardContext } from 'apollo/useContext';
-import { useLazyQuery } from '@apollo/client';
+//import { useLazyQuery } from '@apollo/client';
 import { GET_ALL_ROCKETS, GET_ROCKET } from 'apollo/apolloAPI';
 export const GET_ROCKET_ITEMS = gql`
   query LocalRocket {
@@ -55,8 +55,11 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
   // console.log(addToRocket(), 'promise');
 
   const { card } = useContext(cardContext);
-  console.log(card, ' card context');
-  const local = localStorage.getItem('');
+  useEffect(() => {
+    console.log(card, 'FavoritePage');
+  }, [card]);
+
+  //const local = localStorage.getItem('');
 
   SwiperCore.use([Navigation]);
 

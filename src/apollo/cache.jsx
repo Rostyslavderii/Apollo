@@ -7,7 +7,7 @@ import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
 
 export const cartItemsVar = makeVar([null]);
 
-console.log(cartItemsVar(), 'cache');
+console.log(cartItemsVar(), 'cache'); //[null, id] rabotaet
 
 export const cache = new InMemoryCache({
   typePolicies: {

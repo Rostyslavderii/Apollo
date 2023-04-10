@@ -1,9 +1,11 @@
 import {
   Route,
+  Routes,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
+//import { BrowserRouter as Router } from 'react-router-dom';
 import { lazy } from 'react';
 import Layout, { Spinner } from './Layout/Layout';
 import { MyContext } from 'apollo/useContext';
@@ -20,6 +22,8 @@ export const blogLoader = async ({ request, params }) => {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+    // <Router>
+    //   <Routes>
     <Route path="/" element={<Layout />}>
       <Route
         index
@@ -28,13 +32,15 @@ const router = createBrowserRouter(
         }
       />
       <Route
-        path="/favorite"
+        path="favorite"
         loader={blogLoader}
         element={
           <FavoritePage favorites={'favorites'} setFavorites={'setFavorites'} />
         }
       />
     </Route>
+    //   </Routes>
+    // </Router>
   ),
   {
     basename: '/Apollo/',

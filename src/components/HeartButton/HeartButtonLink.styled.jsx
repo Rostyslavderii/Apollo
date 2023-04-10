@@ -26,14 +26,3 @@ export const FavoriteLink = styled(Link)`
     height: 24px;
   }
 `;
-
-export const FavoriteHeartSvg = styled.img`
-  width: 24px;
-  height: 24px;
-  &:hover,
-  &:focus {
-    svg {
-      fill: ${p => p.theme.colors.mainText};
-    }
-  }
-`;

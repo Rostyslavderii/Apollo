@@ -1,5 +1,5 @@
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { FavoriteHeart } from 'components/Header/Navigation/AccountList/FavoriteHeart/FavoriteHeart';
+import { HeartButtonLink } from 'components/HeartButton/HeartButtonLink';
 import {
   CardsItemContainer,
   CardImg,
@@ -108,7 +108,7 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
                 >
                   buy
                 </CardButton>
-                <FavoriteHeart
+                <HeartButtonLink
                   id={id}
                   index={index}
                   name={name}
