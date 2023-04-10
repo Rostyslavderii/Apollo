@@ -20,9 +20,9 @@ export const HeartButtonLink = ({ id, description, name }) => {
   const { getCard, card } = useContext(cardContext);
   // console.log(card, 'context');
 
-  function cards(productId) {
-    cartItemsVar([...cartItemsVar(), productId]);
-    //console.log(cartItemsVar(), 'what');
+  function cards(rocket) {
+    cartItemsVar([...cartItemsVar(), rocket]);
+    getCard(rocket);
   }
 
   async function addToRocket(rocketId) {
@@ -33,13 +33,11 @@ export const HeartButtonLink = ({ id, description, name }) => {
         rocketId,
       },
     });
-    console.log(data);
-    console.log(cartItemsVar());
   }
 
   return (
     <>
-      <FavoriteLink onClick={() => getCard(id)}>
+      <FavoriteLink onClick={() => cards({ id, description, name })}>
         <BiHeart alt="FavoriteHeart" />
       </FavoriteLink>
     </>

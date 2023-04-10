@@ -9,10 +9,12 @@ import {
   CardsTopic,
   CardsArrows,
   ArrowButton,
+  CardsContainer,
 } from '../CardsSection/CardsSlider/CardsSlider.styled';
 
 import 'swiper/css';
 import 'swiper/less/navigation';
+import 'swiper/less/pagination';
 import { useReactiveVar } from '@apollo/client';
 import { gql } from '@apollo/client';
 import { useContext, useEffect } from 'react';
@@ -35,24 +37,25 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
   const { data, loading, error } = useQuery(GET_ROCKET, {
     variables: { rocketId: rocketId },
   });
-  //console.log(data, 'data1'); //undef
 
-  const cartItems = useReactiveVar(cartItemsVar); //!!
+  const cartItems = useReactiveVar(cartItemsVar);
 
-  //console.log(cartItems, 'makeVar'); // null
-
-  async function addToRocket(rocketId) {
-    const { data } = await client.readQuery({
-      query: GET_ROCKET,
-      variables: {
-        rocketId,
-      },
-    });
-    addToRocket(rocketId);
-    // console.log(data, 'data');
-  }
-
-  // console.log(addToRocket(), 'promise');
+  useEffect(
+    rocketId => {
+      async function addToRocket(rocketId) {
+        const { data } = await client.readQuery({
+          query: GET_ROCKET,
+          variables: {
+            rocketId,
+          },
+        });
+        console.log(data, 'data');
+      }
+      addToRocket(rocketId);
+      console.log(cartItems, 'makeVar');
+    },
+    [cartItems]
+  );
 
   const { card } = useContext(cardContext);
   useEffect(() => {
@@ -69,42 +72,44 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
         const cardById = data.rocket.find(elem => elem.id === cardId);
       })} */}
       <section>
-        <CardsTopic>
-          <CardsArrows>
-            <ArrowButton className="swiper-button-prev">
-              <IoIosArrowBack />
-            </ArrowButton>
-            <ArrowButton className="swiper-button-next">
-              <IoIosArrowForward />
-            </ArrowButton>
-          </CardsArrows>
-        </CardsTopic>
-        <Swiper
-          style={{}}
-          slidesPerView={3}
-          spaceBetween={24}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
-          modules={[Navigation]}
-          className="mySwiper"
-        >
-          {/* {rockets?.length > 0 &&
-            rockets.map(({ id, name, description }, index) => {
-              return (
-                <FavoriteCard
-                  favorites={favorites}
-                  setFavorites={setFavorites}
-                  key={id}
-                  name={name}
-                  description={description}
-                  id={id}
-                  index={index}
-                />
-              );
-            })} */}
-        </Swiper>
+        <CardsContainer>
+          <CardsTopic>
+            <CardsArrows>
+              <ArrowButton className="swiper-button-prev">
+                <IoIosArrowBack />
+              </ArrowButton>
+              <ArrowButton className="swiper-button-next">
+                <IoIosArrowForward />
+              </ArrowButton>
+            </CardsArrows>
+          </CardsTopic>
+          <Swiper
+            style={{}}
+            slidesPerView={3}
+            spaceBetween={24}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            modules={[Navigation]}
+            className="mySwiper"
+          >
+            {cartItems?.length > 0 &&
+              cartItems.map(({ id, name, description }, index) => {
+                return (
+                  <FavoriteCard
+                    favorites={favorites}
+                    setFavorites={setFavorites}
+                    key={id}
+                    name={name}
+                    description={description}
+                    id={id}
+                    index={index}
+                  />
+                );
+              })}
+          </Swiper>
+        </CardsContainer>
       </section>
     </>
   );

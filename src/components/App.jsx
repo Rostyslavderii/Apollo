@@ -1,13 +1,12 @@
 import {
   Route,
-  Routes,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-//import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { lazy } from 'react';
-import Layout, { Spinner } from './Layout/Layout';
+import Layout from './Layout/Layout';
 import { MyContext } from 'apollo/useContext';
 import { json } from 'react-router-dom';
 
@@ -22,8 +21,6 @@ export const blogLoader = async ({ request, params }) => {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    // <Router>
-    //   <Routes>
     <Route path="/" element={<Layout />}>
       <Route
         index
@@ -39,8 +36,6 @@ const router = createBrowserRouter(
         }
       />
     </Route>
-    //   </Routes>
-    // </Router>
   ),
   {
     basename: '/Apollo/',

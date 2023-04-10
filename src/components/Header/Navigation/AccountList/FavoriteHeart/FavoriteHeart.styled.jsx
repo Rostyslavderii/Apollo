@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export const FavoriteLink = styled(Link)`
+export const FavoriteLink = styled(NavLink)`
   text-decoration: none;
   display: flex;
   flex-direction: row;
@@ -12,14 +12,15 @@ export const FavoriteLink = styled(Link)`
   background-color: ${p => p.theme.colors.arrows};
   transition: all 0.3s;
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     transform: scale(1.05);
-
     background-color: ${p => p.theme.colors.accent};
     svg {
       fill: ${p => p.theme.colors.mainText};
     }
   }
+
   svg {
     fill: ${p => p.theme.colors.black};
     width: 24px;

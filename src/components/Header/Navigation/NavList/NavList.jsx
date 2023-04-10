@@ -18,7 +18,7 @@ export const NavList = () => {
             onClick={() => {
               alert('Need tours fetch');
             }}
-            to="/tours"
+            to="tours"
           >
             Tours
           </NavLinks>
@@ -28,7 +28,7 @@ export const NavList = () => {
             onClick={() => {
               alert('Need about fetch');
             }}
-            to="/about"
+            to="about"
           >
             About
           </NavLinks>
@@ -38,7 +38,7 @@ export const NavList = () => {
             onClick={() => {
               alert('Need help fetch');
             }}
-            to="/help"
+            to="help"
           >
             Help
           </NavLinks>

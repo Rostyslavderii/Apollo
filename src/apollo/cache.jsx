@@ -5,9 +5,9 @@ import { useEffect } from 'react';
 //import { AsyncStorage } from 'react-native';
 import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
 
-export const cartItemsVar = makeVar([null]);
+export const cartItemsVar = makeVar([]);
 
-console.log(cartItemsVar(), 'cache'); //[null, id] rabotaet
+console.log(cartItemsVar(), 'cache');
 
 export const cache = new InMemoryCache({
   typePolicies: {

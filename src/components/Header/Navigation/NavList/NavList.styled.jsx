@@ -9,10 +9,6 @@ export const Nav = styled.ul`
 `;
 
 export const NavLinks = styled(NavLink)`
-  &.${props => props.activeClassName} {
-    color: white;
-  }
-
   text-transform: uppercase;
   text-decoration: none;
   color: white;
@@ -20,14 +16,6 @@ export const NavLinks = styled(NavLink)`
   &.active {
     padding-bottom: 4px;
     box-shadow: 0px 1.2px 0px rgb(255, 255, 255);
-  }
-
-  &.selected {
-    color: white; // red
-  }
-
-  &.${({ isActive }) => (isActive ? 'active=card' : '')} {
-    color: white;
   }
 
   &:hover,

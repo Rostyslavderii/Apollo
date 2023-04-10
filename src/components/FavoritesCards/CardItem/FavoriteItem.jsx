@@ -1,5 +1,7 @@
 import Images from 'apollo/Images.json';
 import { SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/less/navigation';
 import 'swiper/less/navigation';
 import {
   CardsItemContainer,
@@ -14,10 +16,8 @@ export const FavoriteCard = ({
   name,
   description,
   index,
-  favorites,
   setFavorites,
 }) => {
-  //console.log(id, 'Item');
   const Icons = Images.map(image => image.icon);
   return (
     <SwiperSlide
