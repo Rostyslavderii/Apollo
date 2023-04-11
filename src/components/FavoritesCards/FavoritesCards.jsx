@@ -1,4 +1,5 @@
 import { FavoriteCard } from './CardItem/FavoriteItem';
+import { TrashCanButton } from 'components/FavoritesCards/CardItem/TrashCanButton';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { useApolloClient, useQuery } from '@apollo/client';
@@ -16,6 +17,8 @@ import {
   CardTextContainer,
   CardName,
   CardText,
+  ButtomList,
+  CardButton,
 } from '../CardsSection/CardsSlider/CardsSlider.styled';
 
 import 'swiper/css';
@@ -137,6 +140,20 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
                     <CardName>{name}</CardName>
                     <CardText>{description}</CardText>
                   </CardTextContainer>
+                  <ButtomList>
+                    <CardButton
+                      type="button"
+                      onClick={() => setFavorites(favorite => [...favorite, 1])}
+                    >
+                      buy
+                    </CardButton>
+                    <TrashCanButton
+                      id={id}
+                      index={index}
+                      name={name}
+                      description={description}
+                    />
+                  </ButtomList>
                 </SwiperSlide>
               );
             })}
