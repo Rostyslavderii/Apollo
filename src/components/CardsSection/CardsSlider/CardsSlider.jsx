@@ -14,8 +14,6 @@ import {
   ButtomList,
   CardButton,
 } from './CardsSlider.styled';
-import { useReactiveVar } from '@apollo/client';
-import { cartItemsVar } from 'apollo/cache';
 //ApolloApi
 import { GET_ALL_ROCKETS } from '../../../apollo/apolloAPI';
 import { useQuery } from '@apollo/client';
@@ -28,8 +26,6 @@ import SwiperCore, { Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
-
-import { useSelector } from 'react-redux';
 
 export const CardsSlider = ({ favorites, setFavorites }) => {
   const { loading, error, data, refetch, networkStatus } = useQuery(
@@ -117,36 +113,6 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
               </ButtomList>
             </SwiperSlide>
           ))}
-          {/* {reduserCard.length > 0 &&
-            reduserCard.map(({ id, name, description }, index) => {
-              return (
-                <SwiperSlide
-                  key={id}
-                  style={{
-                    border: '1px solid #d3eaff',
-                    'max-width': '411px',
-                  }}
-                >
-                  <CardsItemContainer>
-                    <CardImg
-                      src={process.env.PUBLIC_URL + Icons[index]}
-                      alt={description}
-                    />
-                  </CardsItemContainer>
-                  <CardTextContainer>
-                    <CardName>{name}</CardName>
-                    <CardText>{description}</CardText>
-                    <button
-                      className="delete-contact-btn"
-                      type="button"
-                      // onClick={() => dispatch(removeCard(id))}
-                    >
-                      Delete
-                    </button>
-                  </CardTextContainer>
-                </SwiperSlide>
-              );
-            })} */}
         </Swiper>
       </CardsContainer>
     </>
