@@ -33,7 +33,7 @@ export const TrashCanButton = ({ id, description, name, index, data }) => {
   return (
     <>
       <TrashLink onClick={() => clearLine({ index })}>
-        <CgTrashEmpty alt="FavoriteHeart" />
+        <CgTrashEmpty alt="TrashCanButton" />
       </TrashLink>
     </>
   );
