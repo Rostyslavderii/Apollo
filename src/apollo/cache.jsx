@@ -32,6 +32,6 @@ console.log(
   })
 );
 
-window.addEventListener('storage', () => {
-  console.log('storage has changed');
-});
+// window.addEventListener('storage', () => {
+//   console.log('storage has changed');
+// });
