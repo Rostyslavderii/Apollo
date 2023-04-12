@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import BackImage from ''
 
 export const FavoriteContainer = styled.div`
   background-image: url(Banner/image.png);

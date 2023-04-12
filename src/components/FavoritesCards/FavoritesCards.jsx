@@ -27,9 +27,7 @@ import 'swiper/less/pagination';
 
 import Images from 'apollo/Images.json';
 import { useReactiveVar } from '@apollo/client';
-import { gql } from '@apollo/client';
-import { useContext, useEffect } from 'react';
-import { cardContext } from 'apollo/useContext';
+import { useEffect } from 'react';
 //import { useLazyQuery } from '@apollo/client';
 import { GET_ROCKET_ITEMS } from 'apollo/apolloAPI';
 
@@ -115,7 +113,7 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
           >
             {data?.cartItems.map(({ id, name, description }, index) => {
               // return (
-              //   <FavoriteCard //!
+              //   <FavoriteCard
               //     id={id}
               //     name={name}
               //     description={description}

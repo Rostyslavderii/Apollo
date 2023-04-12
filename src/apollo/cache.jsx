@@ -1,8 +1,5 @@
 import { makeVar } from '@apollo/client';
 import { InMemoryCache } from '@apollo/client';
-import { GET_ROCKET_ITEMS, GET_ROCKET } from './apolloAPI';
-import { useEffect } from 'react';
-//import { AsyncStorage } from 'react-native';
 import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
 
 export const cartItemsVar = makeVar([]);

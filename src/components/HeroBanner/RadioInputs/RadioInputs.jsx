@@ -30,7 +30,7 @@ export const RadioInputs = (setSlideIndex, index) => {
             <LabelsCtrl>
               <UInput
                 type="radio"
-                // onChange={this.HandleCheckBox}
+                // onChange={HandleCheckBox}
                 id="two"
                 name="scrole"
                 value=""
@@ -40,7 +40,7 @@ export const RadioInputs = (setSlideIndex, index) => {
             <LabelsCtrl>
               <UInput
                 type="radio"
-                // onChange={this.HandleCheckBox}
+                // onChange={HandleCheckBox}
                 id="three"
                 name="scrole"
                 value=""
