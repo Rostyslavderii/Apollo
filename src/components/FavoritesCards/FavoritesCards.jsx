@@ -5,7 +5,7 @@ import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { useApolloClient, useQuery } from '@apollo/client';
 import { cartItemsVar } from 'apollo/cache';
 import * as ReactDOMServer from 'react-dom/server';
-
+import { ClearButton } from 'components/FavoritesCards/CardItem/ClearButton';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import {
   CardsTopic,
@@ -31,17 +31,12 @@ import { gql } from '@apollo/client';
 import { useContext, useEffect } from 'react';
 import { cardContext } from 'apollo/useContext';
 //import { useLazyQuery } from '@apollo/client';
-import { GET_ALL_ROCKETS, GET_ROCKET } from 'apollo/apolloAPI';
-export const GET_ROCKET_ITEMS = gql`
-  query LocalRocket {
-    cartItems @client
-  }
-`;
+import { GET_ROCKET_ITEMS } from 'apollo/apolloAPI';
 
 export const FavoritesCards = ({ favorites, setFavorites }) => {
   const client = useApolloClient();
 
-  // console.log(client.cache.data, 'kash'); // kash est s perou stranitsy
+  const { data, loading, error } = useQuery(GET_ROCKET_ITEMS);
 
   // const rocketId = '5e9d0d95eda69955f709d1eb';
 
@@ -52,16 +47,16 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
   const cartItems = useReactiveVar(cartItemsVar);
 
   useEffect(() => {
-    // async function addToRocket(rocketId) {
-    //   const { data } = await client.readQuery({
-    //     query: GET_ROCKET,
-    //     variables: {
-    //       rocketId,
-    //     },
-    //   });
-    //   console.log(data, 'data');
-    // }
-    // addToRocket(rocketId);
+    //   // async function addToRocket(rocketId) {
+    //   //   const { data } = await client.readQuery({
+    //   //     query: GET_ROCKET,
+    //   //     variables: {
+    //   //       rocketId,
+    //   //     },
+    //   //   });
+    //   //   console.log(data, 'data');
+    //   // }
+    //   // addToRocket(rocketId);
     console.log(cartItems, 'makeVar');
   }, [cartItems]);
 
@@ -82,7 +77,11 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
       })} */}
       <section>
         <CardsContainer>
-          <CardsTopic>
+          <CardsTopic
+            style={{
+              'margin-top': '64px',
+            }}
+          >
             <CardsArrows>
               <ArrowButton className="swiper-button-prev">
                 <IoIosArrowBack />
@@ -91,6 +90,7 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
                 <IoIosArrowForward />
               </ArrowButton>
             </CardsArrows>
+            <ClearButton />
           </CardsTopic>
           <Swiper
             style={{
@@ -113,7 +113,7 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
             modules={[Navigation, Pagination]}
             className="mySwiper"
           >
-            {cartItems.map(({ id, name, description }, index) => {
+            {data?.cartItems.map(({ id, name, description }, index) => {
               // return (
               //   <FavoriteCard //!
               //     id={id}
@@ -152,6 +152,7 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
                       index={index}
                       name={name}
                       description={description}
+                      data={data}
                     />
                   </ButtomList>
                 </SwiperSlide>
