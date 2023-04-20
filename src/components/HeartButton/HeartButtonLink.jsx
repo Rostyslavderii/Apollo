@@ -10,10 +10,20 @@ import { cardContext } from 'apollo/useContext';
 
 import { useNavigation } from 'react-router';
 
+import { ToastContainer, toast } from 'react-toastify';
+
 export const HeartButtonLink = ({ id, description, name }) => {
   const { getCard, card } = useContext(cardContext);
   // console.log(card, 'context');
 
+  const notify = () => {
+    toast.success('You chooce your best flight', {
+      theme: 'dark',
+      icon: '🚀',
+    });
+  };
+
+  const client = useApolloClient();
   function cards(rocket) {
     cartItemsVar([...cartItemsVar(), rocket]);
     getCard(rocket);
@@ -31,7 +41,12 @@ export const HeartButtonLink = ({ id, description, name }) => {
 
   return (
     <>
-      <FavoriteLink onClick={() => cards({ id, description, name })}>
+      <FavoriteLink
+        onClick={() => {
+          notify();
+          cards({ id, description, name });
+        }}
+      >
         <BiHeart alt="FavoriteHeart" />
       </FavoriteLink>
     </>

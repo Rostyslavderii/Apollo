@@ -5,10 +5,18 @@ import { useReactiveVar } from '@apollo/client';
 import { useEffect } from 'react';
 import { useApolloClient } from '@apollo/client';
 import { GET_ROCKET_ITEMS } from 'apollo/apolloAPI';
+import { toast } from 'react-toastify';
 
 export const TrashCanButton = ({ id, description, name, index, data }) => {
   const cartItems = useReactiveVar(cartItemsVar);
   const client = useApolloClient();
+
+  const notify = () => {
+    toast.success('Your flight have been deleted', {
+      theme: 'dark',
+      icon: '🚀',
+    });
+  };
 
   useEffect(() => {}, [cartItems]);
 
@@ -32,7 +40,12 @@ export const TrashCanButton = ({ id, description, name, index, data }) => {
 
   return (
     <>
-      <TrashLink onClick={() => clearLine({ index })}>
+      <TrashLink
+        onClick={() => {
+          notify();
+          clearLine({ index });
+        }}
+      >
         <CgTrashEmpty alt="TrashCanButton" />
       </TrashLink>
     </>

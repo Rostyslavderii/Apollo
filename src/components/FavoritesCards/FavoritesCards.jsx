@@ -1,9 +1,7 @@
 import { FavoriteCard } from './CardItem/FavoriteItem';
 import { TrashCanButton } from 'components/FavoritesCards/CardItem/TrashCanButton';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { useApolloClient, useQuery } from '@apollo/client';
-import { cartItemsVar } from 'apollo/cache';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as ReactDOMServer from 'react-dom/server';
 import { ClearButton } from 'components/FavoritesCards/CardItem/ClearButton';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
@@ -20,19 +18,27 @@ import {
   ButtomList,
   CardButton,
 } from '../CardsSection/CardsSlider/CardsSlider.styled';
-
+// Swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
 import Images from 'apollo/Images.json';
+//import { useLazyQuery } from '@apollo/client';
+import { useApolloClient, useQuery } from '@apollo/client';
+import { cartItemsVar } from 'apollo/cache';
+import { GET_ROCKET_ITEMS } from 'apollo/apolloAPI';
 import { useReactiveVar } from '@apollo/client';
 import { useEffect } from 'react';
-//import { useLazyQuery } from '@apollo/client';
-import { GET_ROCKET_ITEMS } from 'apollo/apolloAPI';
+
+// minified version is also included
+// import 'react-toastify/dist/ReactToastify.min.css';
 
 export const FavoritesCards = ({ favorites, setFavorites }) => {
   const client = useApolloClient();
+  const notify = () => toast('Wow so easy !');
 
   const { data, loading, error } = useQuery(GET_ROCKET_ITEMS);
 
@@ -94,8 +100,25 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
             style={{
               'padding-bottom': '60px',
             }}
-            slidesPerView={3}
+            slidesPerView={1}
             spaceBetween={24}
+            breakpoints={{
+              // when window width is >= 320px
+              320: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              // when window width is >= 480px
+              720: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+              },
+              // when window width is >= 640px
+              1280: {
+                slidesPerView: 1,
+                spaceBetween: 24,
+              },
+            }}
             navigation={{
               nextEl: '.swiper-button-next',
               prevEl: '.swiper-button-prev',
@@ -141,10 +164,15 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
                   <ButtomList>
                     <CardButton
                       type="button"
-                      onClick={() => setFavorites(favorite => [...favorite, 1])}
+                      //onClick={notify}
+                      onClick={() => {
+                        notify();
+                        setFavorites(favorite => [...favorite, 1]);
+                      }}
                     >
                       buy
                     </CardButton>
+
                     <TrashCanButton
                       id={id}
                       index={index}
@@ -158,6 +186,7 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
             })}
           </Swiper>
         </CardsContainer>
+        <ToastContainer />
       </section>
     </>
   );

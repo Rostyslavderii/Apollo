@@ -27,6 +27,8 @@ import 'swiper/css';
 import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
+import { ToastContainer, toast } from 'react-toastify';
+
 export const CardsSlider = ({ favorites, setFavorites }) => {
   const { loading, error, data, refetch, networkStatus } = useQuery(
     GET_ALL_ROCKETS,
@@ -62,8 +64,25 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
           style={{
             'padding-bottom': '60px',
           }}
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={24}
+          breakpoints={{
+            // when window width is >= 320px
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            // when window width is >= 480px
+            720: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            // when window width is >= 640px
+            1280: {
+              slidesPerView: 1,
+              spaceBetween: 24,
+            },
+          }}
           pagination={{
             clickable: true,
             renderBullet: function (index, className) {
@@ -100,7 +119,9 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
               <ButtomList>
                 <CardButton
                   type="button"
-                  onClick={() => setFavorites(favorite => [...favorite, 1])}
+                  onClick={() => {
+                    setFavorites(favorite => [...favorite, 1]);
+                  }}
                 >
                   buy
                 </CardButton>
@@ -114,6 +135,7 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <ToastContainer />
       </CardsContainer>
     </>
   );
