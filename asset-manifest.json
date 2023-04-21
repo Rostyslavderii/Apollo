@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.js": "/Apollo/static/js/main.f12b92f9.js",
+    "main.js": "/Apollo/static/js/main.96d8332b.js",
     "static/css/699.4356722a.chunk.css": "/Apollo/static/css/699.4356722a.chunk.css",
-    "static/js/699.0aad996c.chunk.js": "/Apollo/static/js/699.0aad996c.chunk.js",
-    "static/js/612.081fb0a4.chunk.js": "/Apollo/static/js/612.081fb0a4.chunk.js",
+    "static/js/699.8fbf9f1f.chunk.js": "/Apollo/static/js/699.8fbf9f1f.chunk.js",
+    "static/js/612.93668585.chunk.js": "/Apollo/static/js/612.93668585.chunk.js",
     "static/js/583.f10c65fa.chunk.js": "/Apollo/static/js/583.f10c65fa.chunk.js",
     "static/css/234.1e41a602.chunk.css": "/Apollo/static/css/234.1e41a602.chunk.css",
     "static/js/234.7bc540be.chunk.js": "/Apollo/static/js/234.7bc540be.chunk.js",
@@ -12,15 +12,15 @@
     "index.html": "/Apollo/index.html",
     "static/media/SpaceX.svg": "/Apollo/static/media/SpaceX.6380580731be215e505a8b9789e39a68.svg",
     "static/media/ArrowDown.svg": "/Apollo/static/media/ArrowDown.e5c4e12cef24294442cd9473bd2d4020.svg",
-    "main.f12b92f9.js.map": "/Apollo/static/js/main.f12b92f9.js.map",
+    "main.96d8332b.js.map": "/Apollo/static/js/main.96d8332b.js.map",
     "699.4356722a.chunk.css.map": "/Apollo/static/css/699.4356722a.chunk.css.map",
-    "699.0aad996c.chunk.js.map": "/Apollo/static/js/699.0aad996c.chunk.js.map",
-    "612.081fb0a4.chunk.js.map": "/Apollo/static/js/612.081fb0a4.chunk.js.map",
+    "699.8fbf9f1f.chunk.js.map": "/Apollo/static/js/699.8fbf9f1f.chunk.js.map",
+    "612.93668585.chunk.js.map": "/Apollo/static/js/612.93668585.chunk.js.map",
     "583.f10c65fa.chunk.js.map": "/Apollo/static/js/583.f10c65fa.chunk.js.map",
     "234.1e41a602.chunk.css.map": "/Apollo/static/css/234.1e41a602.chunk.css.map",
     "234.7bc540be.chunk.js.map": "/Apollo/static/js/234.7bc540be.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.f12b92f9.js"
+    "static/js/main.96d8332b.js"
   ]
 }
