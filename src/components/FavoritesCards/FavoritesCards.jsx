@@ -1,6 +1,6 @@
 import { FavoriteCard } from './CardItem/FavoriteItem';
 import { TrashCanButton } from 'components/FavoritesCards/CardItem/TrashCanButton';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as ReactDOMServer from 'react-dom/server';
 import { ClearButton } from 'components/FavoritesCards/CardItem/ClearButton';
@@ -33,16 +33,10 @@ import { GET_ROCKET_ITEMS } from 'apollo/apolloAPI';
 import { useReactiveVar } from '@apollo/client';
 import { useEffect } from 'react';
 
-// minified version is also included
-// import 'react-toastify/dist/ReactToastify.min.css';
-
 export const FavoritesCards = ({ favorites, setFavorites }) => {
   const client = useApolloClient();
-  const notify = () => toast('Wow so easy !');
 
   const { data, loading, error } = useQuery(GET_ROCKET_ITEMS);
-
-  // const rocketId = '5e9d0d95eda69955f709d1eb';
 
   // const { data, loading, error } = useQuery(GET_ROCKET, {
   //   variables: { rocketId: rocketId },
@@ -166,7 +160,6 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
                       type="button"
                       //onClick={notify}
                       onClick={() => {
-                        notify();
                         setFavorites(favorite => [...favorite, 1]);
                       }}
                     >
@@ -186,7 +179,7 @@ export const FavoritesCards = ({ favorites, setFavorites }) => {
             })}
           </Swiper>
         </CardsContainer>
-        <ToastContainer />
+        <ToastContainer autoClose={8000} pauseOnFocusLoss={false} limit={10} />
       </section>
     </>
   );

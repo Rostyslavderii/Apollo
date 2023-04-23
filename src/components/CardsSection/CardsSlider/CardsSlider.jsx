@@ -28,6 +28,7 @@ import 'swiper/less/navigation';
 import 'swiper/less/pagination';
 
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const CardsSlider = ({ favorites, setFavorites }) => {
   const { loading, error, data, refetch, networkStatus } = useQuery(
@@ -135,7 +136,7 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <ToastContainer />
+        <ToastContainer autoClose={8000} pauseOnFocusLoss={false} limit={10} />
       </CardsContainer>
     </>
   );

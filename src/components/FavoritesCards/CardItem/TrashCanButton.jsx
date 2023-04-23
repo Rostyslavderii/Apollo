@@ -15,10 +15,9 @@ export const TrashCanButton = ({ id, description, name, index, data }) => {
     toast.success('Your flight have been deleted', {
       theme: 'dark',
       icon: '🚀',
+      autoClose: 7000,
     });
   };
-
-  useEffect(() => {}, [cartItems]);
 
   // const handleDelete = id => {
   //   const newCartItems = data.cartItems.filter(item => item.id !== id);
