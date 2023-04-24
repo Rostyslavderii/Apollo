@@ -9,7 +9,7 @@ export const Container = styled(`div`)`
   &:hover {
     opacity: 1;
   }
-
+  width: 100vw;
   @media screen and (min-width: 1280px) {
     width: 100vw;
   }
@@ -20,6 +20,8 @@ export const HeaderBlock = styled.div`
   background: rgba(6, 6, 6, 0.48);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
   padding: 0;
   @media screen and (min-width: 480px) {
     padding-left: 10px;
