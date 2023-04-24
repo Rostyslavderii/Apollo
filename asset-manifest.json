@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/Apollo/static/js/main.b1315d72.js",
+    "main.js": "/Apollo/static/js/main.be132e25.js",
     "static/js/670.ac55c766.chunk.js": "/Apollo/static/js/670.ac55c766.chunk.js",
     "static/js/612.ee01bbde.chunk.js": "/Apollo/static/js/612.ee01bbde.chunk.js",
     "static/css/976.db153797.chunk.css": "/Apollo/static/css/976.db153797.chunk.css",
@@ -11,7 +11,7 @@
     "index.html": "/Apollo/index.html",
     "static/media/SpaceX.svg": "/Apollo/static/media/SpaceX.6380580731be215e505a8b9789e39a68.svg",
     "static/media/ArrowDown.svg": "/Apollo/static/media/ArrowDown.e5c4e12cef24294442cd9473bd2d4020.svg",
-    "main.b1315d72.js.map": "/Apollo/static/js/main.b1315d72.js.map",
+    "main.be132e25.js.map": "/Apollo/static/js/main.be132e25.js.map",
     "670.ac55c766.chunk.js.map": "/Apollo/static/js/670.ac55c766.chunk.js.map",
     "612.ee01bbde.chunk.js.map": "/Apollo/static/js/612.ee01bbde.chunk.js.map",
     "976.db153797.chunk.css.map": "/Apollo/static/css/976.db153797.chunk.css.map",
@@ -19,6 +19,6 @@
     "29.f4f8a154.chunk.js.map": "/Apollo/static/js/29.f4f8a154.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.b1315d72.js"
+    "static/js/main.be132e25.js"
   ]
 }
