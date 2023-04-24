@@ -16,4 +16,6 @@ export const LogoImage = styled(`img`)`
   padding-bottom: 19.5px;
 `;
 
-export const Div = styled.div``;
+export const Div = styled.div`
+  z-index: 10001;
+`;

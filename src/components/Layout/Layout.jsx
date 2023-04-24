@@ -16,8 +16,8 @@ const Layout = () => {
 
   return (
     <>
+      <Header />
       <Suspense fallback={<Spinner />}>
-        <Header />
         <Outlet />
       </Suspense>
     </>

@@ -7,6 +7,7 @@ import { BurgerNav } from '../BurgerNav/BurgerNav';
 
 export const Navigation = () => {
   const [isBurgerNavOpen, setIsBurgerNavOpen] = useState(false);
+
   const isDesktop = useMedia('(min-width: 1280px)');
   const isTablet = useMedia('(min-width: 760px)');
   const isMobile = useMedia('(min-width: 520px)');
@@ -31,7 +32,6 @@ export const Navigation = () => {
       )}
       {(isDesktop || isPad) && <AccountList />}
 
-      {/* {!isMobile && <UserNav />} */}
       {!isDesktop && !isPad && <BurgerNavOpenBtn onClick={open} />}
 
       {isBurgerNavOpen && !isDesktop && <BurgerNav close={close} />}

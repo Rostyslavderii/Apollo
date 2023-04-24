@@ -1,6 +1,13 @@
 import { useMedia } from 'react-use';
-
-import { BurgerNavMenu, LogoMenu } from './BurgerNav.styled';
+import { BurgerNavCloseBtn } from './BurgerNavCloseBtn';
+import { Logo } from 'components/Logo/Logo';
+import { NavList } from '../Navigation/NavList/NavList';
+import {
+  BurgerNavMenu,
+  Container,
+  LogoMenu,
+  UserAuthMenu,
+} from './BurgerNav.styled';
 import { useEffect } from 'react';
 
 export const BurgerNav = ({ close }) => {
@@ -17,16 +24,14 @@ export const BurgerNav = ({ close }) => {
 
   return (
     <BurgerNavMenu onClick={close}>
-      {/* <Container>
+      <Container>
         <LogoMenu>
-          <Logo />
           <BurgerNavCloseBtn onClick={close} />
         </LogoMenu>
         <UserAuthMenu>
-          {isMobile && isAuth && <UserNav />}
+          <NavList />
         </UserAuthMenu>
-        <Nav />
-      </Container> */}
+      </Container>
     </BurgerNavMenu>
   );
 };
