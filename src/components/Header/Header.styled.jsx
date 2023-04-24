@@ -20,8 +20,17 @@ export const HeaderBlock = styled.div`
   background: rgba(6, 6, 6, 0.48);
   display: flex;
   align-items: center;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 0;
+  @media screen and (min-width: 480px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  @media screen and (min-width: 760px) {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 `;

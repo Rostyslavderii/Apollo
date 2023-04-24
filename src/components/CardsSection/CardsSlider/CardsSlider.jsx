@@ -51,7 +51,7 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
     <>
       <CardsContainer>
         <CardsTopic>
-          <CardsH1>popular tours</CardsH1>
+          <CardsH1>popular tours </CardsH1>
           <CardsArrows>
             <ArrowButton className="swiper-button-prev">
               <IoIosArrowBack />
@@ -66,21 +66,18 @@ export const CardsSlider = ({ favorites, setFavorites }) => {
             'padding-bottom': '60px',
           }}
           slidesPerView={1}
-          spaceBetween={24}
+          spaceBetween={7}
           breakpoints={{
-            // when window width is >= 320px
-            320: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            // when window width is >= 480px
-            720: {
-              slidesPerView: 2,
-              spaceBetween: 30,
-            },
-            // when window width is >= 640px
-            1280: {
+            480: {
               slidesPerView: 1,
+              spaceBetween: 100,
+            },
+            760: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1280: {
+              slidesPerView: 3,
               spaceBetween: 24,
             },
           }}

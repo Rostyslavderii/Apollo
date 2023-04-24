@@ -14,19 +14,55 @@ export const BannerText = styled.div`
   margin-left: 167px;
   margin-right: 151px;
 `;
+
 export const H1 = styled.h1`
   text-transform: uppercase;
   color: white;
   font-family: Syne;
   font-weight: 800;
-  font-size: 48px;
-  line-height: 58px;
+  font-size: 28px;
+  line-height: 28px;
+
+  @media screen and (min-width: 480px) {
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 47px;
+  }
+
+  @media screen and (min-width: 760px) {
+    font-weight: 800;
+    font-size: 44px;
+    line-height: 48px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 58px;
+  }
 `;
 
 export const Big = styled.h1`
-  font-size: 310px;
-  line-height: 277px;
+  font-size: 170px;
+  line-height: 177px;
   font-weight: 900;
+
+  @media screen and (min-width: 480px) {
+    font-size: 270px;
+    line-height: 233px;
+    font-weight: 900;
+  }
+
+  @media screen and (min-width: 760px) {
+    font-size: 295px;
+    line-height: 262px;
+    font-weight: 900;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 310px;
+    line-height: 277px;
+    font-weight: 900;
+  }
 `;
 // //ArrowButton
 export const ArrowDiv = styled.div`
@@ -90,7 +126,7 @@ export const Container = styled.div`
   @media screen and (min-width: 480px) {
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
   }
 
   @media screen and (min-width: 1280px) {
@@ -120,8 +156,20 @@ export const LabelsCtrl = styled.div`
   }
   position: absolute;
   display: flex;
-  left: -64px;
+  left: -49px;
   top: 29px;
+
+  @media screen and (min-width: 480px) {
+    left: -64px;
+    top: 25px;
+  }
+  @media screen and (min-width: 760px) {
+    top: 25px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 29px;
+  }
 `;
 
 export const Sp = styled.label`

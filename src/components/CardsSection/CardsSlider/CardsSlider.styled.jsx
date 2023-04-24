@@ -2,11 +2,37 @@ import styled from 'styled-components';
 
 //CardsSlider
 export const CardsContainer = styled.div`
-  margin-left: 80px;
-  margin-right: 80px;
-  margin-bottom: 96px;
-  width: 1286px;
-  height: 720px;
+  margin: 0 30px;
+  @media screen and (min-width: 480px) {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 50px;
+    width: 600px;
+    .mySwiper {
+      width: 440px;
+    }
+  }
+
+  @media screen and (min-width: 760px) {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 96px;
+    width: 850px;
+    .mySwiper {
+      width: 850px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 96px;
+    width: 1286px;
+    height: 720px;
+    .mySwiper {
+      width: 1286px;
+    }
+  }
 
   div {
     .swiper-pagination {
@@ -106,7 +132,9 @@ export const CardsContainer = styled.div`
 `;
 
 export const CardsItemContainer = styled.div`
-  width: 411px;
+  @media screen and (min-width: 1280px) {
+    width: 411px;
+  }
   height: 296px;
 `;
 
@@ -164,16 +192,36 @@ export const CardsH1 = styled.h1`
 `;
 //CardsArrows
 export const CardsArrows = styled.div`
-  width: 104px;
+  width: 59px;
   height: 44px;
+  @media screen and (min-width: 480px) {
+    width: 104px;
+  }
 `;
 
 export const ArrowButton = styled.button`
   width: 44px;
   height: 44px;
   &:first-child {
-    margin-right: 16px;
+    margin-right: 0px;
   }
+
+  @media screen and (min-width: 480px) {
+    &:first-child {
+      margin-right: 8px;
+    }
+  }
+  @media screen and (min-width: 760px) {
+    &:first-child {
+      margin-right: 8px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    &:first-child {
+      margin-right: 16px;
+    }
+  }
+
   svg {
     width: 24px;
     height: 24px;
