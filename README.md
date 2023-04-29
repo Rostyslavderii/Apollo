@@ -1,2 +1,2 @@
 
-# React ApolloTest template
+# React Apollo template
